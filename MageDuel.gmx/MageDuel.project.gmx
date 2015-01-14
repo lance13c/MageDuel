@@ -19,13 +19,13 @@
     <script>scripts\init_battle_room.gml</script>
     <scripts name="SpellBook">
       <scripts name="SpellShield">
-        <script>scripts\on_create_spell_shield.gml</script>
-        <script>scripts\create_spell_shield.gml</script>
+        <script>scripts\spell_shield_on_create.gml</script>
+        <script>scripts\spell_shield_create.gml</script>
         <script>scripts\spell_sheild.gml</script>
+        <script>scripts\spell_shield_destroy.gml</script>
       </scripts>
       <script>scripts\spell_system.gml</script>
     </scripts>
-    <script>scripts\on_destroy_spell_shield.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\Player</object>
