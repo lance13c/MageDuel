@@ -138,11 +138,11 @@ if (keyboard_check(ord('D'))){
           </argument>
           <argument>
             <kind>0</kind>
-            <string></string>
+            <string>system</string>
           </argument>
           <argument>
             <kind>0</kind>
-            <string></string>
+            <string>activeSpell</string>
           </argument>
           <argument>
             <kind>0</kind>

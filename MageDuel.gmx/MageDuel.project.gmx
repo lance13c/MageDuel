@@ -26,7 +26,6 @@
       <script>scripts\spell_system.gml</script>
     </scripts>
   </scripts>
-  <shaders name="shaders"/>
   <objects name="objects">
     <object>objects\Player</object>
     <object>objects\Wall</object>

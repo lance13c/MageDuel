@@ -26,12 +26,13 @@
           <argument>
             <kind>1</kind>
             <string>/// Get Varriables
-system = Player.system;
-activeSpell = Player.activeSpell;
-
+//system = Player.system;
+//activeSpell = Player.activeSpell;
 //var onCreate = "on_create_" + script_get_name(activeSpell);
 //script = asset_get_index(onCreate);
 //script_execute(onCreate);
+//var activeSpell;
+//var system;
 </string>
           </argument>
         </arguments>
@@ -55,7 +56,9 @@ activeSpell = Player.activeSpell;
           <argument>
             <kind>1</kind>
             <string>/// Run Spell Particals
-script_execute(activeSpell);
+
+
+script_execute(aS);
 </string>
           </argument>
         </arguments>
