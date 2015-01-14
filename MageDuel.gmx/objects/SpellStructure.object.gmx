@@ -58,7 +58,7 @@
             <string>/// Run Spell Particals
 
 
-script_execute(aS);
+script_execute(activeSpell);
 </string>
           </argument>
         </arguments>

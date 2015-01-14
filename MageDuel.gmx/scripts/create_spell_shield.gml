@@ -12,8 +12,8 @@ for(i=0;i<(angle/2);i+=2){
     lx = lengthdir_x(len,(dir+360)-(i));
     ly = lengthdir_y(len,(dir+360)-(i));
     with(instance_create(x+lx,y+ly,SpellStructure)){
-        var system = system;
-        var aS = activeSpell; // String Value
+        system = other.system;
+        activeSpell = other.activeSpell; // String Value
     }
 }
 // One Side of Curve
@@ -21,7 +21,7 @@ for(i=0;i<(angle/2);i+=2){
     lx = lengthdir_x(len,(dir+360)+(i));
     ly = lengthdir_y(len,(dir+360)+(i));
     with(instance_create(x+lx,y+ly,SpellStructure)){
-        var system = system;
-        var aS = activeSpell;
+        system = other.system;
+        activeSpell = other.activeSpell; // String Value
     }
 }
