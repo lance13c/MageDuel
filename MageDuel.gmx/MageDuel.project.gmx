@@ -11,17 +11,28 @@
       <sprite>sprites\s_VWall</sprite>
       <sprite>sprites\s_HWall</sprite>
     </sprites>
+    <sprite>sprites\s_SpellStructure</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\init_battle_room.gml</script>
+    <scripts name="SpellBook">
+      <scripts name="SpellShield">
+        <script>scripts\on_create_spell_shield.gml</script>
+        <script>scripts\create_spell_shield.gml</script>
+        <script>scripts\spell_sheild.gml</script>
+      </scripts>
+      <script>scripts\spell_system.gml</script>
+    </scripts>
   </scripts>
+  <shaders name="shaders"/>
   <objects name="objects">
     <object>objects\Player</object>
     <object>objects\Wall</object>
     <object>objects\VWall</object>
     <object>objects\HWall</object>
+    <object>objects\SpellStructure</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Battle_Room_01</room>
