@@ -11,6 +11,7 @@ for(i=0;i<(angle/2);i+=inc){
     lx = lengthdir_x(len,(dir+360)-(i));
     ly = lengthdir_y(len,(dir+360)-(i));
     with(instance_create(x+lx,y+ly,SpellStructure)){
+        offset = other.i; // This is the position offset
         system = other.system;
         activeSpell = other.activeSpell; // String Value
         script_execute(spell_shield_on_create);
@@ -21,6 +22,7 @@ for(i=0;i<(angle/2);i+=inc){
     lx = lengthdir_x(len,(dir+360)+(i));
     ly = lengthdir_y(len,(dir+360)+(i));
     with(instance_create(other.x+lx,other.y+ly,SpellStructure)){
+        offset = other.i; // This is the given angle position
         system = other.system;
         activeSpell = other.activeSpell; // String Value
         script_execute(spell_shield_on_create);

@@ -94,7 +94,7 @@ if (device_mouse_check_button_pressed(0,mb_left)){
     script_execute(spell_shield_create);
 }
 if (device_mouse_check_button(0,mb_left)){
-    
+    script_execute(spell_shield_active);
 }
 if (device_mouse_check_button_released(0,mb_left)){
     script_execute(spell_shield_destroy);
