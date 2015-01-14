@@ -33,6 +33,7 @@
 //script_execute(onCreate);
 //var activeSpell;
 //var system;
+//script_exists(on_create_spell_shield);
 </string>
           </argument>
         </arguments>
@@ -56,7 +57,6 @@
           <argument>
             <kind>1</kind>
             <string>/// Run Spell Particals
-
 
 script_execute(activeSpell);
 </string>

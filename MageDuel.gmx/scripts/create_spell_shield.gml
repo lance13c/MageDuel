@@ -14,14 +14,16 @@ for(i=0;i<(angle/2);i+=2){
     with(instance_create(x+lx,y+ly,SpellStructure)){
         system = other.system;
         activeSpell = other.activeSpell; // String Value
+        script_execute(on_create_spell_shield);
     }
 }
 // One Side of Curve
 for(i=0;i<(angle/2);i+=2){
     lx = lengthdir_x(len,(dir+360)+(i));
     ly = lengthdir_y(len,(dir+360)+(i));
-    with(instance_create(x+lx,y+ly,SpellStructure)){
+    with(instance_create(other.x+lx,other.y+ly,SpellStructure)){
         system = other.system;
         activeSpell = other.activeSpell; // String Value
+        script_execute(on_create_spell_shield);
     }
 }
