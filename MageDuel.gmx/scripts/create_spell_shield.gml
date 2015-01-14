@@ -1,6 +1,6 @@
 // Player Executes this Script
-system = argument0; // The Player Partical System
-activeSpell = argument1; // The Player Current Spell Used -- String Value
+//system = argument0; // The Player Partical System
+//activeSpell = argument1; // The Player Current Spell Used -- String Value
 
 // In charge of creating spell structures
 angle = 40; // Half of how wide of a curve and SpellStructures it makes

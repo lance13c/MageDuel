@@ -25,6 +25,7 @@
       </scripts>
       <script>scripts\spell_system.gml</script>
     </scripts>
+    <script>scripts\on_destroy_spell_shield.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\Player</object>
