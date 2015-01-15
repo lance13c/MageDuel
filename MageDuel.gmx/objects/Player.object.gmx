@@ -29,6 +29,15 @@
 activeSpell = spell_sheild;
 system = part_system_create();
 phy_fixed_rotation = true;
+
+mana = 100; // Magic Power
+manaRegen = 5;
+playerSpeed = _Player_Movement_Speed;
+
+//Spells Known to Player
+spellsKnown[0] = spell_sheild;
+spellsKnown[1] = spell_sheild;
+spellsKnown[2] = spell_sheild;
 </string>
           </argument>
         </arguments>
@@ -54,11 +63,11 @@ phy_fixed_rotation = true;
             <string>///Movement
 
 if (keyboard_check(ord('W'))){
-    phy_speed_y = -1*_Player_Movement_Speed;
+    phy_speed_y = -1*playerSpeed;
     //physics_apply_local_force(_Player_Center_X,_Player_Center_Y,_Player_Center_X,_Player_Center_Y + -1*_Player_Movement_Force);
 }
 if (keyboard_check(ord('A'))){
-    phy_speed_x = -1* _Player_Movement_Speed;
+    phy_speed_x = -1* playerSpeed;
     //physics_apply_local_force(_Player_Center_X,_Player_Center_Y,_Player_Center_X + -1*_Player_Movement_Force,_Player_Center_Y);
 }
 if (keyboard_check(ord('S'))){
@@ -66,7 +75,7 @@ if (keyboard_check(ord('S'))){
    physics_apply_local_force(_Player_Center_X,_Player_Center_Y,_Player_Center_X,_Player_Center_Y + 1*_Player_Movement_Force);
 }
 if (keyboard_check(ord('D'))){
-    phy_speed_x = _Player_Movement_Speed;
+    phy_speed_x = playerSpeed;
     //physics_apply_local_force(_Player_Center_X,_Player_Center_Y,_Player_Center_X  + _Player_Movement_Force,_Player_Center_Y);
 }
 </string>
