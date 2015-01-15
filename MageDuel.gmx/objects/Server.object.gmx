@@ -57,15 +57,17 @@ network_connect( client, "127.0.0.1", 6510);
 
 var eventid = ds_map_find_value(async_load, "id");
 var t = ds_map_find_value(async_load, "type");
-if (t == 1){
+if (t == network_type_connect){
     var sock = ds_map_find_value(async_load, "socket");
     var ip = ds_map_find_value(async_load, "ip");
     var inst = instance_create(room_width*(4/5),room_height*(1/5),PlayerNetwork); // Refactor Later
     ds_map_add( clients, sock, inst);
 }
-var buff = ds_map_find_value(async_load, "buffer");
-var sock = ds_map_find_value(async_load, "id");
-var inst = ds_map_find_value( clients, sock);
+if (t == network_type_data){
+    var buff = ds_map_find_value(async_load, "buffer");
+    var sock = ds_map_find_value(async_load, "id");
+    var inst = ds_map_find_value( clients, sock);
+}
 </string>
           </argument>
         </arguments>

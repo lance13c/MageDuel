@@ -26,15 +26,14 @@
           <argument>
             <kind>1</kind>
             <string>/// Setting Up Client
-
-buff = buffer_create( 256, buffer_grow, 1);
-buffer_seek(buff, buffer_seek_start, 0);
-buffer_write(buff, buffer_s16, PING_CMD);
-network_send_packet( client, buff, buffer_tell(buff));
-
 data = ds_list_create();
 
+client = network_create_socket(network_socket_tcp);
+buff = buffer_create( 256, buffer_grow, 1);
 
+buffer_seek(buff, buffer_seek_start, 0);
+buffer_write(buff, buffer_s16, 3);
+network_send_packet( client, buff, buffer_tell(buff));
 </string>
           </argument>
         </arguments>
@@ -61,21 +60,21 @@ data = ds_list_create();
 
 var eventid = ds_map_find_value(async_load, "id");
 if ( client == eventid){
+    var buff = ds_map_find_value(async_load, "buffer");
+    sprites = buffer_read(buff, buffer_u32);
     
+    ds_list_clear(data);
+    for(var i=0;i&lt;sprites;i++){
+        ds_list_add(data, buffer_read(buff,buffer_s16)); //x
+        ds_list_add(data, buffer_read(buff,buffer_s16)); //y
+        ds_list_add(data, buffer_read(buff,buffer_s16)); //sprite_index
+        ds_list_add(data, buffer_read(buff,buffer_s16)); //image_index
+        ds_list_add(data, buffer_read(buff,buffer_s16)); //image_blend
+        ds_list_add(data, buffer_read(buff,buffer_s16)); //player name  
+    }
 }
 
-var buff = ds_map_find_value(async_load, "buffer");
-sprites = buffer_read(buff, buffer_u32);
 
-ds_list_clear(data);
-for(var i=0;i&lt;sprites;i++){
-    ds_list_add(data, buffer_read(buff,buffer_s16)); //x
-    ds_list_add(data, buffer_read(buff,buffer_s16)); //y
-    ds_list_add(data, buffer_read(buff,buffer_s16)); //sprite_index
-    ds_list_add(data, buffer_read(buff,buffer_s16)); //image_index
-    ds_list_add(data, buffer_read(buff,buffer_s16)); //image_blend
-    ds_list_add(data, buffer_read(buff,buffer_s16)); //player name  
-}
 </string>
           </argument>
         </arguments>
@@ -99,18 +98,19 @@ for(var i=0;i&lt;sprites;i++){
           <argument>
             <kind>1</kind>
             <string>/// Drawing Network Players
-
-var index = 0;
-for(i=0;i&lt;sprites;i++){
-    var xx,yy,sp,spindex,col;
-    xx = ds_list_find_value(data,index++);
-    yy = ds_list_find_value(data,index++);
-    sp = ds_list_find_value(data,index++);
-    spindex = ds_list_find_value(data,index++);
-    col = ds_list_find_value(data,index++);
-    name = ds_list_find_value(data,index++);
-    
-    draw_sprite_ext(sp,spindex,xx,yy,1,1,0,col,1.0);
+if (!ds_list_empty(data)){
+    var index = 0;
+    for(i=0;i&lt;sprites;i++){
+        var xx,yy,sp,spindex,col;
+        xx = ds_list_find_value(data,index++);
+        yy = ds_list_find_value(data,index++);
+        sp = ds_list_find_value(data,index++);
+        spindex = ds_list_find_value(data,index++);
+        col = ds_list_find_value(data,index++);
+        name = ds_list_find_value(data,index++);
+        
+        draw_sprite_ext(sp,spindex,xx,yy,1,1,0,col,1.0);
+    }
 }
 </string>
           </argument>
