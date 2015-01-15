@@ -31,10 +31,14 @@
   </scripts>
   <objects name="objects">
     <object>objects\Player</object>
+    <object>objects\PlayerLocal</object>
+    <object>objects\PlayerNetwork</object>
     <object>objects\Wall</object>
     <object>objects\VWall</object>
     <object>objects\HWall</object>
     <object>objects\SpellStructure</object>
+    <object>objects\Client</object>
+    <object>objects\Server</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Battle_Room_01</room>

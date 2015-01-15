@@ -1,4 +1,4 @@
-// Spell in Draw Event of SpellStructure
+// Spell Partical Creation in SpellStructure
 
 //part_emitter_burst(system,e_shield1,p_shield1,5);
 //draw_self();
