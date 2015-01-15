@@ -1,6 +1,6 @@
 
 with(SpellStructure){
-    if (self.activeSpell == spell_sheild){
+    if (self.activeSpell == spell_shield){
         instance_destroy();
     }
 }

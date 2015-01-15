@@ -14,7 +14,7 @@ for(i=0;i<(angle);i+=inc){
         offset = -1*other.i; // This is the position offset, -1 to offset side
         system = other.system;
         activeSpell = other.activeSpell; // String Value
-        script_execute(spell_shield_on_create);
+        script_execute(spell_shield_on_create); // This is specific to this script
     }
 }
 // One Side of Curve

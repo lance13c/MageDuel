@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///Variables
-activeSpell = spell_sheild;
+activeSpell = spell_shield;
 maxSpells = 3;
 activeSpellIndex = 0;
 system = part_system_create();
@@ -37,9 +37,9 @@ manaRegen = 5;
 playerSpeed = _Player_Movement_Speed;
 
 //Spells Known to Player
-spellsKnown[0] = spell_sheild;
-spellsKnown[1] = spell_sheild;
-spellsKnown[2] = spell_sheild;
+spellsKnown[0] = spell_shield;
+spellsKnown[1] = spell_shield;
+spellsKnown[2] = spell_shield;
 </string>
           </argument>
         </arguments>
@@ -102,14 +102,26 @@ if (keyboard_check(ord('D'))){
             <kind>1</kind>
             <string>/// Spell Activation
 
+// Getting the method names
+create =  script_get_name(activeSpell) + "_create";
+active = script_get_name(activeSpell) + "_active"
+destroy = script_get_name(activeSpell) + "_destroy"
+
+// Assigning the methods from the method names
+scr_create = asset_get_index(create);
+scr_active = asset_get_index(active);
+scr_destroy = asset_get_index(destroy);
+
+
+
 if (device_mouse_check_button_pressed(0,mb_left)){
-    script_execute(spell_shield_create);
+    script_execute(scr_create);
 }
 if (device_mouse_check_button(0,mb_left)){
-    script_execute(spell_shield_active);
+    script_execute(scr_active);
 }
 if (device_mouse_check_button_released(0,mb_left)){
-    script_execute(spell_shield_destroy);
+    script_execute(scr_destroy);
 }
 </string>
           </argument>
@@ -131,25 +143,27 @@ if (device_mouse_check_button_released(0,mb_left)){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Aux Controls
+            <string>/// Aux and ActiveSpellIndex Controls
 
-// Mouse Wheel, changeds activeSpellIndex
-if (mouse_wheel_up() || keyboard_check_pressed(ord('E'))){
-    if (activeSpellIndex &gt;= maxSpells-1){
-        activeSpellIndex = 0;
-    }else{
-        activeSpellIndex += 1;
+if (!device_mouse_check_button(0,mb_left)){ // This makes it so the spell activation does not get messed up
+    // Mouse Wheel, changeds activeSpellIndex
+    if (mouse_wheel_up() || keyboard_check_pressed(ord('E'))){
+        if (activeSpellIndex &gt;= maxSpells-1){
+            activeSpellIndex = 0;
+        }else{
+            activeSpellIndex += 1;
+        }
     }
-}
-if (mouse_wheel_down() || keyboard_check_pressed(ord('Q'))){
-    if (activeSpellIndex &lt;= 0){
-        activeSpellIndex = maxSpells-1;
-    }else{
-        activeSpellIndex -= 1;
+    if (mouse_wheel_down() || keyboard_check_pressed(ord('Q'))){
+        if (activeSpellIndex &lt;= 0){
+            activeSpellIndex = maxSpells-1;
+        }else{
+            activeSpellIndex -= 1;
+        }
     }
+    //Changes the current spell
+    activeSpell = spellsKnown[activeSpellIndex];
 }
-//Changes the current spell
-activeSpell = spellsKnown[activeSpellIndex];
 </string>
           </argument>
         </arguments>
