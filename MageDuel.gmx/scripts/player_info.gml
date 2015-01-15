@@ -13,12 +13,12 @@ var y2 = y-height+(size/2);
 
 draw_self();
 
-// Drawing blocks that show which spell is activated
+// Drawing blocks that show which spell is activated -- Blocks start at zero, i does not
 for(i=1;i<blocks+1;i++){
     var x1 = x-(sprite_width/4) + (sprite_width/2)*(i/4)-(size/2);
     var x2 = x-(sprite_width/4) + (sprite_width/2)*(i/4)+(size/2);
     
-    if (i == activeSpellIndex){
+    if (i-1 == activeSpellIndex){
         
         draw_rectangle_colour(x1,y1,x2,y2,active,active,active,active,false);
         draw_rectangle_colour(x1,y1,x2,y2,outline,outline,outline,outline,true);

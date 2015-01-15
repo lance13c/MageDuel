@@ -27,7 +27,8 @@
             <kind>1</kind>
             <string>///Variables
 activeSpell = spell_sheild;
-activeSpellIndex = 1;
+maxSpells = 3;
+activeSpellIndex = 0;
 system = part_system_create();
 phy_fixed_rotation = true;
 
@@ -110,6 +111,45 @@ if (device_mouse_check_button(0,mb_left)){
 if (device_mouse_check_button_released(0,mb_left)){
     script_execute(spell_shield_destroy);
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Aux Controls
+
+// Mouse Wheel, changeds activeSpellIndex
+if (mouse_wheel_up() || keyboard_check_pressed(ord('E'))){
+    if (activeSpellIndex &gt;= maxSpells-1){
+        activeSpellIndex = 0;
+    }else{
+        activeSpellIndex += 1;
+    }
+}
+if (mouse_wheel_down() || keyboard_check_pressed(ord('Q'))){
+    if (activeSpellIndex &lt;= 0){
+        activeSpellIndex = maxSpells-1;
+    }else{
+        activeSpellIndex -= 1;
+    }
+}
+//Changes the current spell
+activeSpell = spellsKnown[activeSpellIndex];
 </string>
           </argument>
         </arguments>
