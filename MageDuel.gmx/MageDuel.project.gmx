@@ -27,6 +27,7 @@
       </scripts>
       <script>scripts\spell_system.gml</script>
     </scripts>
+    <script>scripts\player_info.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\Player</object>
