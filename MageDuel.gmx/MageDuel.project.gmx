@@ -12,6 +12,9 @@
       <sprite>sprites\s_HWall</sprite>
     </sprites>
     <sprite>sprites\s_SpellStructure</sprite>
+    <sprite>sprites\s_TextBox</sprite>
+    <sprite>sprites\s_CreateServer</sprite>
+    <sprite>sprites\s_CreateServerHighlighted</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -19,15 +22,23 @@
     <script>scripts\init_battle_room.gml</script>
     <scripts name="SpellBook">
       <scripts name="SpellShield">
-        <script>scripts\spell_shield_create.gml</script>
         <script>scripts\spell_shield.gml</script>
-        <script>scripts\spell_shield_destroy.gml</script>
+        <script>scripts\spell_shield_create.gml</script>
         <script>scripts\spell_shield_active.gml</script>
+        <script>scripts\spell_shield_destroy.gml</script>
         <script>scripts\spell_shield_on_create.gml</script>
       </scripts>
       <script>scripts\spell_system.gml</script>
     </scripts>
     <script>scripts\player_info.gml</script>
+    <scripts name="Networking">
+      <script>scripts\network_ConnectDisconnect.gml</script>
+      <script>scripts\network_ServerRecievedData.gml</script>
+      <script>scripts\network_SendName.gml</script>
+      <script>scripts\network_SendStillAlive.gml</script>
+      <script>scripts\network_SendKey.gml</script>
+      <script>scripts\network_SendMouseState.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <object>objects\Player</object>
@@ -39,11 +50,29 @@
     <object>objects\SpellStructure</object>
     <object>objects\Client</object>
     <object>objects\Server</object>
+    <object>objects\Menu</object>
+    <object>objects\CreateServerButton</object>
+    <object>objects\TextBox</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\Start_Room</room>
     <room>rooms\Battle_Room_01</room>
   </rooms>
-  <constants number="4">
+  <constants number="18">
+    <constant name="NETWORK_PLAY">1</constant>
+    <constant name="NETWORK_LOGIN">0</constant>
+    <constant name="MOUSE_RELEASED">2</constant>
+    <constant name="MOUSE_DOWN">1</constant>
+    <constant name="MOUSE_PRESSED">0</constant>
+    <constant name="KEY_UP">1</constant>
+    <constant name="KEY_DOWN">0</constant>
+    <constant name="DOWN_KEY">3</constant>
+    <constant name="JUMP_KEY">2</constant>
+    <constant name="RIGHT_KEY">1</constant>
+    <constant name="LEFT_KEY">0</constant>
+    <constant name="PING_CMD">2</constant>
+    <constant name="NAME_CMD">1</constant>
+    <constant name="KEY_CMD">0</constant>
     <constant name="_Player_Center_X">32</constant>
     <constant name="_Player_Center_Y">32</constant>
     <constant name="_Player_Movement_Force">100</constant>

@@ -26,6 +26,36 @@
           <argument>
             <kind>1</kind>
             <string>/// Setting Up Client
+clientx = room_width*(4/5);
+clienty = room_height*(1/5);
+PlayerName = global.ServerName;
+
+// Network Messages
+buff = buffer_create(256, buffer_grow, 1);
+
+//Client Socket
+client = network_create_socket(global.ServerType);
+
+global.client = client;
+
+global.NetworkState = NETWORK_PLAY;
+
+allsprites = ds_list_create();
+sprites = 0;
+
+// Connect to Server
+var err = network_connect(client, global.connectip,6510);
+if (err != 0){
+    // Can't connect show error message
+    show_message("Error: can not connect to server!");
+    game_restart();
+}
+
+// Client has connected to the server, now send "player_name";
+network_SendName( PlayerName );
+alarm[0] = 120;
+
+/*
 data = ds_list_create();
 
 client = network_create_socket(network_socket_tcp);
@@ -34,6 +64,97 @@ buff = buffer_create( 256, buffer_grow, 1);
 buffer_seek(buff, buffer_seek_start, 0);
 buffer_write(buff, buffer_s16, 3);
 network_send_packet( client, buff, buffer_tell(buff));
+*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Send "ping" to tell the Server - still here -
+alarm[0] = 120;
+network_SendStillAlive();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Send Player Inputs to Server
+
+//Key Map these
+
+// Jump
+if (keyboard_check(ord('W')) || keyboard_check(ord('Space'))){
+    network_SendKey(JUMP_KEY,KEY_DOWN);
+}else{
+    network_SendKey(JUMP_KEY,KEY_UP);
+}
+
+// Move Left
+if (keyboard_check(ord('A'))){
+    network_SendKey(LEFT_KEY,KEY_DOWN);
+}else{
+    network_SendKey(LEFT_KEY,KEY_UP);
+}
+
+// Move Right
+if (keyboard_check(ord('D'))){
+    network_SendKey(RIGHT_KEY,KEY_DOWN);
+}else{
+    network_SendKey(RIGHT_KEY,KEY_UP);
+}
+
+// Move Down
+if (keyboard_check(ord('S'))){
+    network_SendKey(DOWN_KEY,KEY_DOWN);
+}else{
+    network_SendKey(DOWN_KEY,KEY_UP);
+}
+
+// Mouse Press
+if (device_mouse_check_button_pressed(0,mb_left)){
+    network_SendMouseState(mb_left,MOUSE_PRESSED);
+// Mouse Down
+}else if (device_mouse_check_button(0,mb_left)){
+    network_SendMouseState(mb_left,MOUSE_DOWN);
+//Mouse Released
+}else if (device_mouse_check_button_released(0,mb_left)){
+    network_SendMouseState(mb_left,MOUSE_RELEASED);
+}
+
 </string>
           </argument>
         </arguments>
@@ -59,18 +180,37 @@ network_send_packet( client, buff, buffer_tell(buff));
             <string>/// Network Client Controls
 
 var eventid = ds_map_find_value(async_load, "id");
-if ( client == eventid){
-    var buff = ds_map_find_value(async_load, "buffer");
-    sprites = buffer_read(buff, buffer_u32);
-    
-    ds_list_clear(data);
-    for(var i=0;i&lt;sprites;i++){
-        ds_list_add(data, buffer_read(buff,buffer_s16)); //x
-        ds_list_add(data, buffer_read(buff,buffer_s16)); //y
-        ds_list_add(data, buffer_read(buff,buffer_s16)); //sprite_index
-        ds_list_add(data, buffer_read(buff,buffer_s16)); //image_index
-        ds_list_add(data, buffer_read(buff,buffer_s16)); //image_blend
-        ds_list_add(data, buffer_read(buff,buffer_s16)); //player name  
+
+// Check if the data is for this client
+if (client == eventid){
+
+    switch(global.NetworkState){
+        
+        case NETWORK_PLAY:
+        {
+            // Read all data...
+            var buff = ds_map_find_value(async_load, "buffer");
+            
+            // Get number of sprites sent
+            sprites = buffer_read(buff, buffer_u32);
+            
+            // Read out OUR location  (llow scrolling maps)
+            clientx = buffer_read(buff, buffer_s16); // x
+            clienty = buffer_read(buff, buffer_s16); // y
+        
+            
+            // Clear list and add this client's information
+            ds_list_clear(allsprites);
+            
+            for(var i=0;i&lt;sprites;i++){
+                ds_list_add(data, buffer_read(buff,buffer_s16)); //x
+                ds_list_add(data, buffer_read(buff,buffer_s16)); //y
+                ds_list_add(data, buffer_read(buff,buffer_s16)); //sprite_index
+                ds_list_add(data, buffer_read(buff,buffer_s16)); //image_index
+                ds_list_add(data, buffer_read(buff,buffer_s32)); //image_blend
+                ds_list_add(data, buffer_read(buff,buffer_string)); //player name
+            }
+        } 
     }
 }
 
@@ -98,16 +238,23 @@ if ( client == eventid){
           <argument>
             <kind>1</kind>
             <string>/// Drawing Network Players
-if (!ds_list_empty(data)){
+
+// set the X and Y of the client, makes room follow player
+x = clientx;
+y = clienty;
+
+// Now loop through all active sprites and draw them
+if (!ds_list_empty(allsprites)){
     var index = 0;
     for(i=0;i&lt;sprites;i++){
         var xx,yy,sp,spindex,col;
-        xx = ds_list_find_value(data,index++);
-        yy = ds_list_find_value(data,index++);
-        sp = ds_list_find_value(data,index++);
-        spindex = ds_list_find_value(data,index++);
-        col = ds_list_find_value(data,index++);
-        name = ds_list_find_value(data,index++);
+        
+        xx = ds_list_find_value(allsprites,index++);
+        yy = ds_list_find_value(allsprites,index++);
+        sp = ds_list_find_value(allsprites,index++);
+        spindex = ds_list_find_value(allsprites,index++);
+        col = ds_list_find_value(allsprites,index++);
+        name = ds_list_find_value(allsprites,index++);
         
         draw_sprite_ext(sp,spindex,xx,yy,1,1,0,col,1.0);
     }
