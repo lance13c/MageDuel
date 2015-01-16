@@ -38,7 +38,7 @@ global.BaddieCount = 0;
 global.listzero = ds_list_create();  // Don't use index 0, list return 0 on error
 global.mapzero = ds_map_create(); // Don't use index 0, maps return 0 on error
 global.serverlist = ds_list_create();
-global.serverames = ds_list_create();
+global.servernames = ds_list_create();
 
 // Create a server and listen for broadcasts
 global.broadcast_server = network_create_server(network_socket_udp,6511,100);
@@ -65,11 +65,12 @@ global.broadcast_server = network_create_server(network_socket_udp,6511,100);
           <argument>
             <kind>1</kind>
             <string>/// Start game - local client+server
-var i = "";
+i = "";
 with(TextBox){
     other.i = self.Text;
 }
 global.ServerName = i;
+
 
 global.newServer = instance_create(0,0,Server);
 if (global.haveserver == false){
@@ -183,7 +184,7 @@ if (eventid == global.broadcast_server){
     
     // incoming data for the server from a connected socket
     var buff = ds_map_find_value(async_load, "buffer");
-    name = buffer_read(buffer, buffer_string);
+    name = buffer_read(buff, buffer_string);
     
     // Add to our list if it isn't already there
     var index  = ds_list_find_index(global.serverlist, ip);

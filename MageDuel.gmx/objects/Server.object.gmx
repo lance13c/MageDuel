@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -27,8 +27,9 @@
             <kind>1</kind>
             <string>///Set Up Server
 
+global.client = 100; // Just needed to instatiate this variable
 global.PlayerTotal = 0;
-global.haveServer = true;
+global.haveserver = true;
 
 broadcast_buffer = buffer_create(32, buffer_fixed, 1);
 player_buffer = buffer_create(16384, buffer_fixed, 1);
@@ -184,7 +185,7 @@ if (server == eventid){
     // Means client is connecting or disconnecting
     network_ConnectDisconnect();
 }else if( eventid == global.client){
-    // Do nother if this is for our "local client"
+    // Do nothing if this is for our "local client"
 }else{
     // Add other clients
     network_ServerRecievedData();

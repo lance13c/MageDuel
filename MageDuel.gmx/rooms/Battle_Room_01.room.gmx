@@ -127,7 +127,7 @@
     <instance objName="HWall" x="800" y="736" name="inst_7FA08F47" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="HWall" x="832" y="736" name="inst_FEAB04D0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="HWall" x="864" y="736" name="inst_DA9C0F77" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Client" x="128" y="512" name="inst_BB29890D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Client" x="64" y="128" name="inst_AF58D72D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>

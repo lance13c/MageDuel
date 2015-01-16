@@ -3,7 +3,7 @@
 var buff = ds_map_find_value(async_load, "buffer");
 
 //The command
-var cmd buffer_read(buff, buffer_s16);
+var cmd = buffer_read(buff, buffer_s16);
 
 //Get Socket ID - This is the Client socket ID - key for clients ds_map
 var sock = ds_map_find_value(async_load, "id");

@@ -10,4 +10,4 @@ buffer_write(buff, buffer_s16, argument0);
 buffer_write(buff, buffer_s16, argument1);
 
 // Send Data
-network_send_packet(client, buffer, buffer_tell(buff));
+network_send_packet(client, buff, buffer_tell(buff));

@@ -1,6 +1,6 @@
 /// Ping the server once in a while to let it know this client is still connected
 
-buffer_seek(buffer, buffer_seek_start, 0);
+buffer_seek(buff, buffer_seek_start, 0);
 
 buffer_write(buff, buffer_s16, PING_CMD);
 
