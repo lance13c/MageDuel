@@ -203,12 +203,13 @@ if (client == eventid){
             ds_list_clear(allsprites);
             
             for(var i=0;i&lt;sprites;i++){
-                ds_list_add(data, buffer_read(buff,buffer_s16)); //x
-                ds_list_add(data, buffer_read(buff,buffer_s16)); //y
-                ds_list_add(data, buffer_read(buff,buffer_s16)); //sprite_index
-                ds_list_add(data, buffer_read(buff,buffer_s16)); //image_index
-                ds_list_add(data, buffer_read(buff,buffer_s32)); //image_blend
-                ds_list_add(data, buffer_read(buff,buffer_string)); //player name
+                ds_list_add(allsprites, buffer_read(buff,buffer_s16)); //x
+                ds_list_add(allsprites, buffer_read(buff,buffer_s16)); //y
+                ds_list_add(allsprites, buffer_read(buff,buffer_s16)); //sprite_index
+                ds_list_add(allsprites, buffer_read(buff,buffer_s16)); //image_index
+                ds_list_add(allsprites, buffer_read(buff,buffer_s32)); //image_blend
+                ds_list_add(allsprites, buffer_read(buff,buffer_string)); //player name
+                ds_list_add(allsprites, buffer_read(buff,buffer_s16)); //playerID
             }
         } 
     }
@@ -243,6 +244,11 @@ if (client == eventid){
 x = clientx;
 y = clienty;
 
+var localPlayerID;
+with (PlayerLocal){
+    localPlayerID = self.playerID;
+}
+
 // Now loop through all active sprites and draw them
 if (!ds_list_empty(allsprites)){
     var index = 0;
@@ -255,8 +261,12 @@ if (!ds_list_empty(allsprites)){
         spindex = ds_list_find_value(allsprites,index++);
         col = ds_list_find_value(allsprites,index++);
         name = ds_list_find_value(allsprites,index++);
+        playerID = ds_list_find_value(allsprites,index++);
         
-        draw_sprite_ext(sp,spindex,xx,yy,1,1,0,col,1.0);
+        // Don't draw self
+        if (playerID != localPlayerID){ // Change this to playerNumber in future
+            draw_sprite_ext(sp,spindex,xx,yy,1,1,0,col,1.0);
+        }
     }
 }
 </string>

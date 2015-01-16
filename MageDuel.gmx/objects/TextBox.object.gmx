@@ -77,7 +77,7 @@ keyboard_string = Text;
 draw_self();
 
 draw_set_halign(fa_left);
-draw_set_color(c_black);
+draw_set_color(c_aqua);
 draw_text(x+5,y+5,Text);
 
 draw_text(x,y-20,"Player's name");
@@ -122,5 +122,8 @@ Text = keyboard_string;
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints/>
+  <PhysicsShapePoints>
+    <point>128,16</point>
+    <point>128,128</point>
+  </PhysicsShapePoints>
 </object>

@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Movement
 
-if (keyboard_check(ord('W'))){
+if (keyboard_check(ord('W')) || keyboard_check(vk_space)){
     phy_speed_y = -1*playerSpeed;
     //physics_apply_local_force(_Player_Center_X,_Player_Center_Y,_Player_Center_X,_Player_Center_Y + -1*_Player_Movement_Force);
 }

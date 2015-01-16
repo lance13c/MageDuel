@@ -26,6 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>///Variables
+global.PlayerTotal += 1;
+playerID = global.PlayerTotal;// How to identify the player, to choose creation of local or netowrk player
+
 activeSpell = spell_shield;
 maxSpells = 3;
 activeSpellIndex = 0;

@@ -28,7 +28,7 @@
             <string>///Set Up Server
 
 global.client = 100; // Just needed to instatiate this variable
-global.PlayerTotal = 0;
+// global.PlayerTotal = 0; Already created in Menu Setup
 global.haveserver = true;
 
 broadcast_buffer = buffer_create(32, buffer_fixed, 1);
@@ -133,6 +133,7 @@ if (count &gt; 0){
         buffer_write(global.player_buffer, buffer_s16, image_index);
         buffer_write(global.player_buffer, buffer_s32, image_blend);
         buffer_write(global.player_buffer, buffer_string, PlayerName);
+        buffer_write(global.player_buffer, buffer_s16, playerID); //playerID
     }
     
     var buffer_size = buffer_tell(player_buffer);
