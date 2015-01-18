@@ -33,7 +33,7 @@ if (client == eventid){
                     ds_list_add(playerDataR, buffer_read(buff,buffer_s32)); //image_blend
                     ds_list_add(playerDataR, buffer_read(buff,buffer_string)); //player name
                     ds_list_add(playerDataR, buffer_read(buff,buffer_s16)); //playerID
-                    ds_list_add(playerDataR, buffer_read(buff,buffer_s32)); //active spell
+                    ds_list_add(playerDataR, buffer_read(buff,buffer_string)); //active spell
                 }
             }else if(cmd == SETUP_CMD){
                 // Clear list and add this client's information

@@ -32,7 +32,10 @@ name = "";
 with (LocalData){
     name = localPlayerName[0];
 }
-
+system = "";
+with (Client){
+    other.system = system;
+}
 activeSpell = spell_shield;
 maxSpells = 3;
 activeSpellIndex = 0;

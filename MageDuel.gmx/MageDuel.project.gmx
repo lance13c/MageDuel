@@ -36,9 +36,9 @@
       <script>scripts\network_SendStillAlive.gml</script>
       <script>scripts\network_SendKey.gml</script>
       <script>scripts\network_SendMouseState.gml</script>
-      <script>scripts\network_ServerSendPlayerInfo.gml</script>
       <script>scripts\network_ServerSendSetupInfo.gml</script>
       <script>scripts\network_ServerRecievedData.gml</script>
+      <script>scripts\network_ServerSendPlayerInfo.gml</script>
       <script>scripts\network_ClientRecievedData.gml</script>
       <script>scripts\network_ClientSendInfo.gml</script>
     </scripts>

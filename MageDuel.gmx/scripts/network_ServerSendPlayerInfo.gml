@@ -21,7 +21,7 @@ if (count > 0){
         buffer_write(global.player_buffer, buffer_s32, image_blend);
         buffer_write(global.player_buffer, buffer_string, name);
         buffer_write(global.player_buffer, buffer_s16, playerID); // playerID
-        buffer_write(global.player_buffer, buffer_s32, activeSpell); // player active spell
+        buffer_write(global.player_buffer, buffer_string,script_get_name(activeSpell)); // player active spell
     }
     
     var buffer_size = buffer_tell(player_buffer);
@@ -37,8 +37,8 @@ if (count > 0){
         
         // Get the player's instance
         var inst = ds_map_find_value(Clients, sock);
-        buffer_write(global.player_buffer, buffer_s16, inst.x);
-        buffer_write(global.player_buffer, buffer_s16, inst.y);
+        //buffer_write(global.player_buffer, buffer_s16, inst.x);
+        //buffer_write(global.player_buffer, buffer_s16, inst.y);
         
         // Send Data
         network_send_packet( sock, player_buffer, buffer_size);
