@@ -65,6 +65,7 @@ global.client = client;
 global.NetworkState = NETWORK_PLAY;
 
 playerDataR = ds_list_create(); // The Player Data Recieved
+playerDataRSetup = ds_list_create(); // Setup Data for the local Player, received by server
 playerDataS = ds_list_create(); // The Player Data to Send
 
 // Connect to Server
