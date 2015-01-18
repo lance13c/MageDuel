@@ -172,7 +172,6 @@ draw_rectangle_colour(x1,y1,x2,y2,outline,outline,outline,outline,true);
 //Draw Player Name
 
 //Draw Debug Player Number
-
 var height = 60; // Height above player
 var color = c_red;
 var text = string(playerID);
@@ -180,9 +179,6 @@ var textLength = string_width(text); // Number of pixels in text
 var x1 = x-(sprite_width/2) + (sprite_width-textLength)/2;
 
 draw_text_colour(x1,y-height,text,color,color,color,color,1);
-
-
-
 
 
 </string>
