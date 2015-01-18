@@ -32,12 +32,13 @@ global.connectip = "127.0.0.1";
 global.InitObject = id;
 global.haveserver = false;
 global.ServerType = network_socket_tcp;
+global.PlayerTotal = 0;
 global.BaddieCount = 0;
-global.serverlist = ds_list_create();
-global.servernames = ds_list_create();
 
 global.listzero = ds_list_create();  // Don't use index 0, list return 0 on error
 global.mapzero = ds_map_create(); // Don't use index 0, maps return 0 on error
+global.serverlist = ds_list_create();
+global.servernames = ds_list_create();
 
 // Create a server and listen for broadcasts
 global.broadcast_server = network_create_server(network_socket_udp,6511,100);

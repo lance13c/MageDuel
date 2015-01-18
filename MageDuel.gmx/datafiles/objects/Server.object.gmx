@@ -33,18 +33,9 @@ global.haveserver = true;
 
 broadcast_buffer = buffer_create(32, buffer_fixed, 1);
 player_buffer = buffer_create(16384, buffer_fixed, 1);
+Clients = ds_map_create();
+socketlist = ds_list_create();
 
-Clients = ds_map_create(); // Players
-socketlist = ds_list_create(); // Client socket
-
-
-// Starting Position of Players: First [0] = playerID, Second [0] = x, [1] = y
-//Player 0
-sPos[0,0] =  room_width*(1/5) // x
-sPosition[0,1] =  room_height*(4/5) // y
-//Player 1
-sPos[1,1] =  room_width*(4/5) // x
-sPos[1,2] =  room_height*(4/5) // y
 
 server = network_create_server( network_socket_tcp, 6510, 32);
 if (server &lt; 0){
@@ -121,9 +112,49 @@ alarm[0] = 60;
             <string>/// Send player data to All attached clients
 
 //Every Frame
-var count = ds_list_size(socketlist); // How many clients/players
+var count = ds_list_size(socketlist);
 if (count &gt; 0){
-    network_ServerSendPlayerInfo();
+    
+    global.player_buffer = player_buffer;
+    
+    buffer_seek(player_buffer, buffer_seek_start, 0);
+    
+    buffer_write(player_buffer, buffer_u32, global.PlayerTotal);
+    
+    buffer_write(global.player_buffer, buffer_s16, 0);
+    buffer_write(global.player_buffer, buffer_s16, 0);
+    
+    
+    // All active Players
+    with(Player){
+        buffer_write(global.player_buffer, buffer_s16, x);
+        buffer_write(global.player_buffer, buffer_s16, y);
+        buffer_write(global.player_buffer, buffer_s16, sprite_index);
+        buffer_write(global.player_buffer, buffer_s16, image_index);
+        buffer_write(global.player_buffer, buffer_s32, image_blend);
+        buffer_write(global.player_buffer, buffer_string, PlayerName);
+        buffer_write(global.player_buffer, buffer_s16, playerID); //playerID
+    }
+    
+    var buffer_size = buffer_tell(player_buffer);
+    
+    //Send data to clients
+    
+    for(i=0;i&lt;count;i++){
+        // get socket
+        var sock = ds_list_find_value(socketlist,i);
+        
+        // Write in client location
+        buffer_seek(player_buffer, buffer_seek_start, 4);
+        
+        // Get the player's instance
+        var inst = ds_map_find_value(Clients, sock);
+        buffer_write(global.player_buffer, buffer_s16, inst.x);
+        buffer_write(global.player_buffer, buffer_s16, inst.y);
+        
+        // Send Data
+        network_send_packet( sock, player_buffer, buffer_size);
+    }
 }
 </string>
           </argument>

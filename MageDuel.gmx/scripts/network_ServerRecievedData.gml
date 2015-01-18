@@ -22,10 +22,12 @@ if (cmd == KEY_CMD){
     // Translate keypress into index for player array
     if (key == ord('W') || key == vk_space){
         key = JUMP_KEY;
-    }else if(key == vk_left){
+    }else if (key == ord('A')){
         key = LEFT_KEY;
-    }else if (key == vk_right){
+    }else if (key == ord('D')){
         key = RIGHT_KEY;
+    }else if (key == ord('S')){
+        key = DOWN_KEY;
     }
     
     // Translate pressed into a bool for player array
@@ -35,7 +37,20 @@ if (cmd == KEY_CMD){
         inst.keys[key] = true;
     }
 }else if (cmd == NAME_CMD){
-    inst.PlayerName = buffer_read(buff, buffer_string);
+    inst.name = buffer_read(buff, buffer_string);
 }else if (cmd == PING_CMD){
     // keep alive so ignore
+}else if (cmd == SPELL_CMD){
+    // Need direction of mouse and player
+    // Need mouse x and y position
+    inst.activeSpell = buffer_read(buff, buffer_string);
+}else if (cmd == PARTICAL_CMD){
+    // get x
+    // get y
+    // get how many
+    // get particals -- all particals will be set on setup of client
+    // get number
+    // put is ds_list of particals to display, set with part_particles_create();
+    
+    //This might not be nessessary
 }

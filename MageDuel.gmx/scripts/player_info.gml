@@ -44,4 +44,3 @@ draw_rectangle_colour(x1,y1,x2,y2,inline,inline,inline,inline,false);
 draw_rectangle_colour(x1,y1,x2,y2,outline,outline,outline,outline,true);
 
 
-

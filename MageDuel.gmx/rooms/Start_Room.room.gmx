@@ -54,6 +54,7 @@
     <instance objName="Menu" x="0" y="0" name="inst_3C06A693" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="CreateServerButton" x="64" y="256" name="inst_6F058223" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="TextBox" x="256" y="256" name="inst_FD6CFF5A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="LocalData" x="0" y="0" name="inst_25080E35" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

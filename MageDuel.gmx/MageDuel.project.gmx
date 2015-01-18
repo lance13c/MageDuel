@@ -30,14 +30,20 @@
       </scripts>
       <script>scripts\spell_system.gml</script>
     </scripts>
-    <script>scripts\player_info.gml</script>
     <scripts name="Networking">
       <script>scripts\network_ConnectDisconnect.gml</script>
-      <script>scripts\network_ServerRecievedData.gml</script>
       <script>scripts\network_SendName.gml</script>
       <script>scripts\network_SendStillAlive.gml</script>
       <script>scripts\network_SendKey.gml</script>
       <script>scripts\network_SendMouseState.gml</script>
+      <script>scripts\network_ServerSendPlayerInfo.gml</script>
+      <script>scripts\network_ServerSendSetupInfo.gml</script>
+      <script>scripts\network_ServerRecievedData.gml</script>
+      <script>scripts\network_ClientRecievedData.gml</script>
+      <script>scripts\network_ClientSendInfo.gml</script>
+    </scripts>
+    <scripts name="ServerClient">
+      <script>scripts\create_ServerClient.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
@@ -53,12 +59,13 @@
     <object>objects\Menu</object>
     <object>objects\CreateServerButton</object>
     <object>objects\TextBox</object>
+    <object>objects\LocalData</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Start_Room</room>
     <room>rooms\Battle_Room_01</room>
   </rooms>
-  <constants number="18">
+  <constants number="23">
     <constant name="NETWORK_PLAY">1</constant>
     <constant name="NETWORK_LOGIN">0</constant>
     <constant name="MOUSE_RELEASED">2</constant>
@@ -70,6 +77,11 @@
     <constant name="JUMP_KEY">2</constant>
     <constant name="RIGHT_KEY">1</constant>
     <constant name="LEFT_KEY">0</constant>
+    <constant name="MOUSE_CMD">7</constant>
+    <constant name="PARTICAL_CMD">6</constant>
+    <constant name="SPELL_CMD">5</constant>
+    <constant name="PLAYER_CMD">4</constant>
+    <constant name="SETUP_CMD">3</constant>
     <constant name="PING_CMD">2</constant>
     <constant name="NAME_CMD">1</constant>
     <constant name="KEY_CMD">0</constant>

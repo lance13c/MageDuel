@@ -26,18 +26,15 @@
           <argument>
             <kind>1</kind>
             <string>///Variables
-playerID = global.playerTotal;// How to identify the player, to choose creation of local or netowrk player
-global.playerTotal += 1;
-name = "";
-with (LocalData){
-    name = localPlayerName[0];
-}
+global.PlayerTotal += 1;
+playerID = global.PlayerTotal;// How to identify the player, to choose creation of local or netowrk player
 
 activeSpell = spell_shield;
 maxSpells = 3;
 activeSpellIndex = 0;
+PlayerName = "";
 
-
+system = part_system_create();
 phy_fixed_rotation = true;
 
 // Keys : left,right,jump,down | 0-3
@@ -105,12 +102,12 @@ spellsKnown[2] = spell_shield;
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
+        <id>605</id>
+        <kind>0</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
         <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
@@ -119,70 +116,47 @@ spellsKnown[2] = spell_shield;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Draw Player Info
-// This is the gui that will appear above the players head relaying player info
-
-var blocks = 3; // How many cubes above the head: the spell in use
-var height = 40; // How far above head
-var size = 4; // Side dimension of block
-var active = c_blue; // The spell in use
-var unActive = c_gray; // Not a spell in use
-var outline = c_ltgray; // Color of outline
-
-
-var y1 = y-height-(size/2);
-var y2 = y-height+(size/2);
-
-draw_self();
-
-// Drawing blocks that show which spell is activated -- Blocks start at zero, i does not
-for(i=1;i&lt;blocks+1;i++){
-    var x1 = x-(sprite_width/4) + (sprite_width/2)*(i/4)-(size/2);
-    var x2 = x-(sprite_width/4) + (sprite_width/2)*(i/4)+(size/2);
-    
-    if (i-1 == activeSpellIndex){
-        
-        draw_rectangle_colour(x1,y1,x2,y2,active,active,active,active,false);
-        draw_rectangle_colour(x1,y1,x2,y2,outline,outline,outline,outline,true);
-    }else{
-        draw_rectangle_colour(x1,y1,x2,y2,unActive,unActive,unActive,unActive,false);
-        draw_rectangle_colour(x1,y1,x2,y2,outline,outline,outline,outline,true);
-    }
-}
-
-// Mana Bar
-var height = 32; // Height above player
-var length = 30;
-var width = 4;  // Width of Bar
-var inline = c_blue;
-var outline = c_white;
-
-var x1 = x-(sprite_width/2) + (sprite_width-length)/2;
-var x2 = x1 + ((mana/100) * length);
-var y1 = y - height - (width/2);
-var y2 = y - height + (width/2);
-
-draw_rectangle_colour(x1,y1,x2,y2,inline,inline,inline,inline,false);
-draw_rectangle_colour(x1,y1,x2,y2,outline,outline,outline,outline,true);
-
-
-//Draw Player Name
-
-//Draw Debug Player Number
-
-var height = 60; // Height above player
-var color = c_red;
-var text = string(playerID);
-var textLength = string_width(text); // Number of pixels in text
-var x1 = x-(sprite_width/2) + (sprite_width-textLength)/2;
-
-draw_text_colour(x1,y-height,text,color,color,color,color,1);
-
-
-
-
-
-</string>
+            <string>test</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>601</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_execute_script</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>9</kind>
+            <script>player_info</script>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
           </argument>
         </arguments>
       </action>
