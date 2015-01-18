@@ -47,6 +47,8 @@
     </scripts>
     <script>scripts\draw_local_player.gml</script>
     <script>scripts\draw_player.gml</script>
+    <script>scripts\getPlayerID.gml</script>
+    <script>scripts\removePlayerID.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\Player</object>
@@ -67,7 +69,8 @@
     <room>rooms\Start_Room</room>
     <room>rooms\Battle_Room_01</room>
   </rooms>
-  <constants number="23">
+  <constants number="24">
+    <constant name="MAX_PLAYERS">8</constant>
     <constant name="NETWORK_PLAY">1</constant>
     <constant name="NETWORK_LOGIN">0</constant>
     <constant name="MOUSE_RELEASED">2</constant>

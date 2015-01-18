@@ -45,6 +45,7 @@ with(LocalData){
     other.spellsKnown[2] = self.spellsKnown[2];
 }
 
+
 system = part_system_create(); // The main partical system
 
 playerX = 0;
@@ -61,8 +62,6 @@ activeSpellIndex = 0;
 mana = 100; // Magic Power
 manaRegen = 5;
 playerSpeed = _Player_Movement_Speed;
-
-
 
 
 
