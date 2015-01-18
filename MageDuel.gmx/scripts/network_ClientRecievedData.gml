@@ -34,17 +34,19 @@ if (client == eventid){
                     ds_list_add(playerDataR, buffer_read(buff,buffer_string)); //player name
                     ds_list_add(playerDataR, buffer_read(buff,buffer_s16)); //playerID
                     ds_list_add(playerDataR, buffer_read(buff,buffer_string)); //active spell
+                    ds_list_add(playerDataR, buffer_read(buff,buffer_s16)); //active spell index
+                    ds_list_add(playerDataR, buffer_read(buff,buffer_s16)); //mana
                 }
             }else if(cmd == SETUP_CMD){
                 // Clear list and add this client's information
                 ds_list_clear(playerDataRSetup);
                 
                 for(var i=0;i<global.playerTotal;i++){
-                    ds_list_add(playerDataRSetup, buffer_read(buff,buffer_s16)); //x
-                    ds_list_add(playerDataRSetup, buffer_read(buff,buffer_s16)); //y
-                    ds_list_add(playerDataRSetup, buffer_read(buff,buffer_s16)); //sprite_index
-                    ds_list_add(playerDataRSetup, buffer_read(buff,buffer_s16)); //image_index
-                    ds_list_add(playerDataRSetup, buffer_read(buff,buffer_s32)); //image_blend
+                    //playerX = buffer_read(buff,buffer_s16) //x
+                    //playerY = buffer_read(buff,buffer_s16); //y
+                    //playerSpriteIndex = buffer_read(buff,buffer_s16); //sprite_index
+                    //playerImageIndex =  buffer_read(buff,buffer_s16); //image_index
+                    //playerImageBlend =  buffer_read(buff,buffer_s32); //image_blend
                     localPlayerID = buffer_read(buff,buffer_s16); //playerID;
                 }
             }

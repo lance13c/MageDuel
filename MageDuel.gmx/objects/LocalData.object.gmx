@@ -42,6 +42,11 @@ global.PlayerSetupInfo[3,0] = 0; // Represents the information of player 0, info
 
 global.playerTotal = 0;
 localPlayerName[0] = "Demo"; // Player 0 name, This is in case there are multiple local players
+
+//Spells Known to Player
+spellsKnown[0] = "spell_shield";
+spellsKnown[1] = "spell_shield";
+spellsKnown[2] = "spell_shield";
 </string>
           </argument>
         </arguments>

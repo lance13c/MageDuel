@@ -31,12 +31,30 @@ clienty = room_height*(1/5);// Not important
 
 //LOCAL PLAYER ATTRIBUTES:
 localPlayerName = "";
+
+//Spells Known to Player
+spellsKnown[0] = "spell_shield";
+spellsKnown[1] = "spell_shield";
+spellsKnown[2] = "spell_shield";
+
+//Transfer Local Data to Client
 with(LocalData){
     other.localPlayerName = self.localPlayerName[0];
+    other.spellsKnown[0] = self.spellsKnown[0];
+    other.spellsKnown[1] = self.spellsKnown[1];
+    other.spellsKnown[2] = self.spellsKnown[2];
 }
+
 system = part_system_create(); // The main partical system
 
-activeSpell = spell_shield;
+playerX = 0;
+playerY = 0;
+
+playerSpriteIndex = -1;
+playerImageIndex = -1;
+playerImageBlend = -1;
+
+activeSpell = "spell_shield";
 maxSpells = 3;
 activeSpellIndex = 0;
 
@@ -44,10 +62,7 @@ mana = 100; // Magic Power
 manaRegen = 5;
 playerSpeed = _Player_Movement_Speed;
 
-//Spells Known to Player
-spellsKnown[0] = spell_shield;
-spellsKnown[1] = spell_shield;
-spellsKnown[2] = spell_shield;
+
 
 
 
@@ -228,27 +243,11 @@ x = clientx;
 y = clienty;
 
 // Now loop through all active sprites and draw them
-// If this is server, do not draw
-if (!global.haveserver){
+// If this is server, do not draw, Draw only when we know have the playerID;
+if (!global.haveserver &amp;&amp; localPlayerID != -1){
     if (!ds_list_empty(playerDataR)){
-        var index = 0;
-        for(i=0;i&lt;global.playerTotal;i++){
-            var xx,yy,sp,spindex,col,activeSpell;
-            
-            xx = ds_list_find_value(playerDataR,index++);
-            yy = ds_list_find_value(playerDataR,index++);
-            sp = ds_list_find_value(playerDataR,index++);
-            spindex = ds_list_find_value(playerDataR,index++);
-            col = ds_list_find_value(playerDataR,index++);
-            name = ds_list_find_value(playerDataR,index++);
-            playerID = ds_list_find_value(playerDataR,index++);
-            activeSpell = ds_list_find_value(playerDataR,index++);
-            
-            // Don't draw self
-            if (playerID != localPlayerID){ // Change this to playerNumber in future
-                draw_sprite_ext(sp,spindex,xx,yy,1,1,0,col,1.0);
-            }
-        }
+        // Get the player data and draw
+        draw_player(playerDataR);
     }
 }
 </string>

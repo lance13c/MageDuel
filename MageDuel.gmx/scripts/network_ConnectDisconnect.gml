@@ -18,7 +18,7 @@ if (t == network_type_connect){
         inst = instance_create(room_width*(4/5),room_height*(1/5),PlayerNetwork); // Refactor Later
     }
     ds_map_add(Clients, sock, inst);
-    network_ServerSendSetupInfo(inst);
+    network_ServerSendSetupInfo(inst,sock);
 }else{
     
     var inst = ds_map_find_value(Clients, sock);
