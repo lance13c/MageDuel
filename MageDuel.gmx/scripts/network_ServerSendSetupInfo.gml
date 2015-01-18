@@ -9,8 +9,8 @@ buffer_write(global.player_buffer, buffer_s16, 0); // client x
 buffer_write(global.player_buffer, buffer_s16, 0); // client y
 
 with(Player){
-    buffer_write(global.player_buffer, buffer_s16, sPos[playerID,0]);
-    buffer_write(global.player_buffer, buffer_s16, SPos[playerID,0]);
+    buffer_write(global.player_buffer, buffer_s16, other.sPos[self.playerID,0]);
+    buffer_write(global.player_buffer, buffer_s16, other.sPos[self.playerID,1]);
     buffer_write(global.player_buffer, buffer_s16, sprite_index);
     buffer_write(global.player_buffer, buffer_s16, image_index);
     buffer_write(global.player_buffer, buffer_s32, image_blend);

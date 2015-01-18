@@ -51,7 +51,7 @@ spellsKnown[2] = spell_shield;
 
 
 
-
+localPlayerID = -1; // Not Assigned - Get this in setup
 
 
 
@@ -225,11 +225,6 @@ network_SendStillAlive();
 // set the X and Y of the client, makes room follow player
 x = clientx;
 y = clienty;
-
-var localPlayerID;
-with (LocalData){
-    localPlayerName = self.playerID;
-}
 
 // Now loop through all active sprites and draw them
 if (!ds_list_empty(playerDataR)){

@@ -41,7 +41,7 @@ socketlist = ds_list_create(); // Client socket
 // Starting Position of Players: First [0] = playerID, Second [0] = x, [1] = y
 //Player 0
 sPos[0,0] =  room_width*(1/5) // x
-sPosition[0,1] =  room_height*(4/5) // y
+sPos[0,1] =  room_height*(4/5) // y
 //Player 1
 sPos[1,1] =  room_width*(4/5) // x
 sPos[1,2] =  room_height*(4/5) // y
@@ -121,10 +121,9 @@ alarm[0] = 60;
             <string>/// Send player data to All attached clients
 
 //Every Frame
-var count = ds_list_size(socketlist); // How many clients/players
-if (count &gt; 0){
-    network_ServerSendPlayerInfo();
-}
+
+network_ServerSendPlayerInfo();
+
 </string>
           </argument>
         </arguments>
