@@ -8,8 +8,8 @@ if (count > 0){
     
     buffer_write(player_buffer, buffer_u32, PLAYER_CMD); // Tell Client this is player data
     buffer_write(player_buffer, buffer_u32, global.playerTotal);
-    buffer_write(player_buffer, buffer_s16, 0); // client x
-    buffer_write(player_buffer, buffer_s16, 0); // client y
+    //buffer_write(player_buffer, buffer_s16, 0); // client x
+    //buffer_write(player_buffer, buffer_s16, 0); // client y
     
     
     // All active Players

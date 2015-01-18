@@ -28,7 +28,6 @@ if (t == network_type_connect){
     with(inst){
         instance_destroy();
     }
-    
     // Delete socket from global list
     var index =ds_list_find_index(socketlist,sock);
     ds_list_delete(socketlist,index);

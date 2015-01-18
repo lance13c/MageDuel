@@ -239,8 +239,8 @@ network_SendStillAlive();
             <string>/// Drawing Network Players
 
 // set the X and Y of the client, makes room follow player
-x = clientx;
-y = clienty;
+//x = clientx;
+//y = clienty;
 
 // Now loop through all active sprites and draw them
 // If this is server, do not draw, Draw only when we know have the playerID;

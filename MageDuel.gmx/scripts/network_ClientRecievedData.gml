@@ -18,8 +18,8 @@ if (client == eventid){
             if (cmd == PLAYER_CMD){ 
                 
                 // Read out OUR location  (follow scrolling maps)
-                clientx = buffer_read(buff, buffer_s16); // x
-                clienty = buffer_read(buff, buffer_s16); // y
+                //clientx = buffer_read(buff, buffer_s16); // x
+                //clienty = buffer_read(buff, buffer_s16); // y
             
                 
                 // Clear list and add this client's information
