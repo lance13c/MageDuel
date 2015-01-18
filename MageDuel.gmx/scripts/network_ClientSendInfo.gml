@@ -3,7 +3,7 @@
 //Key Map these
 
 // Jump
-if (keyboard_check(ord('W')) || keyboard_check(ord('Space'))){
+if (keyboard_check(ord('W')) || keyboard_check(vk_space)){
     network_SendKey(JUMP_KEY,KEY_DOWN);
 }else{
     network_SendKey(JUMP_KEY,KEY_UP);

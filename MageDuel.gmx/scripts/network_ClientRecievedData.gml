@@ -41,14 +41,14 @@ if (client == eventid){
                 // Clear list and add this client's information
                 ds_list_clear(playerDataRSetup);
                 
-                for(var i=0;i<global.playerTotal;i++){ // Might be mistake
+                //for(var i=0;i<global.playerTotal;i++){ // Might be mistake
                     //playerX = buffer_read(buff,buffer_s16) //x
                     //playerY = buffer_read(buff,buffer_s16); //y
                     //playerSpriteIndex = buffer_read(buff,buffer_s16); //sprite_index
                     //playerImageIndex =  buffer_read(buff,buffer_s16); //image_index
                     //playerImageBlend =  buffer_read(buff,buffer_s32); //image_blend
                     localPlayerID = buffer_read(buff,buffer_s16); //playerID;
-                }
+                //}
             }
         } 
     }

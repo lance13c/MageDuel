@@ -43,8 +43,8 @@ socketlist = ds_list_create(); // Client socket
 sPos[0,0] =  room_width*(1/5) // x
 sPos[0,1] =  room_height*(4/5) // y
 //Player 1
-sPos[1,1] =  room_width*(4/5) // x
-sPos[1,2] =  room_height*(4/5) // y
+sPos[1,0] =  room_width*(4/5) // x
+sPos[1,1] =  room_height*(4/5) // y
 
 server = network_create_server( network_socket_tcp, 6510, 32);
 if (server &lt; 0){

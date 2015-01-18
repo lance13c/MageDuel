@@ -4,7 +4,7 @@ var t = ds_map_find_value(async_load, "type");
 
 var sock = ds_map_find_value(async_load, "socket");
 
-var ip = ds_map_find_value(async_load, "op");
+var ip = ds_map_find_value(async_load, "ip");
 
 if (t == network_type_connect){
     ds_list_add( socketlist, sock);
@@ -12,10 +12,12 @@ if (t == network_type_connect){
     var temp = 0;
     var inst;
     // If Local Player is in game, only create network players
+    
+    
     if (!instance_exists(PlayerLocal)){
-        inst = instance_create(room_width*(4/5),room_height*(1/5),PlayerLocal); // Refactor Later
+        inst = instance_create(sPos[0,0],sPos[0,1],PlayerLocal); // Refactor Later
     }else{
-        inst = instance_create(room_width*(4/5),room_height*(1/5),PlayerNetwork); // Refactor Later
+        inst = instance_create(sPos[1,0],sPos[1,1],PlayerNetwork); // Refactor Later
     }
     ds_map_add(Clients, sock, inst);
     network_ServerSendSetupInfo(inst,sock);
