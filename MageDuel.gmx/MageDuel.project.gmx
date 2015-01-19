@@ -76,8 +76,8 @@
     <constant name="MOUSE_RELEASED">2</constant>
     <constant name="MOUSE_DOWN">1</constant>
     <constant name="MOUSE_PRESSED">0</constant>
-    <constant name="KEY_UP">1</constant>
-    <constant name="KEY_DOWN">0</constant>
+    <constant name="KEY_PRESSED">1</constant>
+    <constant name="KEY_UNPRESSED">0</constant>
     <constant name="DOWN_KEY">3</constant>
     <constant name="JUMP_KEY">2</constant>
     <constant name="RIGHT_KEY">1</constant>

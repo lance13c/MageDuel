@@ -19,7 +19,7 @@ show_debug_message(string(inst) + " : " + string(cmd)); // Debuging
         var key = buffer_read(buff, buffer_s16);
         
         // Is key pressed or not
-        var pressed = buffer_read(buff, buffer_s16);
+        var pressed = buffer_read(buff, buffer_s16); // PRESSED = 1, UNPRESSED = 0
         
         // Translate keypress into index for player array
         if (key == ord('W') || key == vk_space){
@@ -33,7 +33,7 @@ show_debug_message(string(inst) + " : " + string(cmd)); // Debuging
         }
         
         // Translate pressed into a bool for player array
-        if (pressed == 0){
+        if (pressed == KEY_UNPRESSED){
             inst.keys[key] = false;
         }else{
             inst.keys[key] = true;

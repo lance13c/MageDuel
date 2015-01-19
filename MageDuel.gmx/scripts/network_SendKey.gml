@@ -1,7 +1,7 @@
 /// Send a key "event" to the server - command
 
 /// arg0 == key
-/// arg1 = down=0, up=1
+/// arg1 = not pressed=0, pressed=1
 
 buffer_seek(buff, buffer_seek_start, 0);
 

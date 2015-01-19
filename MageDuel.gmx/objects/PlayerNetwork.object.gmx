@@ -30,13 +30,13 @@
 if (keys[JUMP_KEY] == true){
     phy_speed_y = -1*playerSpeed;
 }
-if (keys[RIGHT_KEY] == true){
+if (keys[LEFT_KEY] == true){
     phy_speed_x = -1* playerSpeed;
 }
 if (keys[DOWN_KEY]){
    physics_apply_local_force(_Player_Center_X,_Player_Center_Y,_Player_Center_X,_Player_Center_Y + 1*_Player_Movement_Force);
 }
-if (keys[LEFT_KEY]){
+if (keys[RIGHT_KEY]){
     phy_speed_x = playerSpeed;
 }
 </string>
