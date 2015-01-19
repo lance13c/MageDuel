@@ -39,6 +39,12 @@ var inst = ds_map_find_value(Clients, sock);
         }
     }else if (cmd == NAME_CMD){
         inst.name = buffer_read(buff, buffer_string);
+    }else if (cmd == MOUSE_CMD){
+        // Read button
+        var key = buffer_read(buff, buffer_s16);
+        // Read State , 0,1,2 : pressed, down, released
+        var pressed = buffer_read(buff, buffer_s16);
+        var dir = buffer_read(buff, buffer_s16); // Direction
     }else if (cmd == PING_CMD){
         // keep alive so ignore
     }else if (cmd == SPELL_CMD){

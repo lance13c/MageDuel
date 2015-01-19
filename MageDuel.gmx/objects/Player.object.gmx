@@ -27,9 +27,8 @@
             <kind>1</kind>
             <string>///Variables
 playerID = getPlayerID();// How to identify the player, to choose creation of local or netowrk player
+// Player total updated in server
 
-     
-global.playerTotal += 1;
 name = "";
 with (LocalData){
     name = localPlayerName[0];
@@ -81,8 +80,8 @@ spellsKnown[2] = spell_shield;
           <argument>
             <kind>1</kind>
             <string>/// Player Deletion
-global.playerTotal -= 1;
 removePlayerID(playerID);
+// Player total updated in server
 </string>
           </argument>
         </arguments>

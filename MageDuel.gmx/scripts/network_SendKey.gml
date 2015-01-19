@@ -3,7 +3,7 @@
 /// arg0 == key
 /// arg1 = down=0, up=1
 
-buffer_seek(buff, buffer_s16, KEY_CMD);
+buffer_seek(buff, buffer_s16, 0);
 
 buffer_write(buff, buffer_s16, KEY_CMD);
 buffer_write(buff, buffer_s16, argument0);

@@ -1,13 +1,14 @@
 
-var count = ds_list_size(socketlist); // How many clients/players
-if (count > 0){
+global.playerTotal = ds_list_size(socketlist); // How many clients/players
+
+if (global.playerTotal > 0){
 
     //global.player_buffer = player_buffer;
     buffer_seek(player_buffer, buffer_seek_start, 0);
     
     
-    buffer_write(player_buffer, buffer_u32, PLAYER_CMD); // Tell Client this is player data
-    buffer_write(player_buffer, buffer_u32, global.playerTotal);
+    buffer_write(player_buffer, buffer_u16, PLAYER_CMD); // Tell Client this is player data
+    buffer_write(player_buffer, buffer_u16, global.playerTotal);
     //buffer_write(player_buffer, buffer_s16, 0); // client x
     //buffer_write(player_buffer, buffer_s16, 0); // client y
     
@@ -30,7 +31,7 @@ if (count > 0){
     
     //Send data to clients
     
-    for(i=0;i<count;i++){
+    for(i=0;i<global.playerTotal;i++){
         // get socket
         var sock = ds_list_find_value(socketlist,i);
         

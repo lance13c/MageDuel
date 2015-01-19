@@ -40,3 +40,5 @@ if (device_mouse_check_button_pressed(0,mb_left)){
 }else if (device_mouse_check_button_released(0,mb_left)){
     network_SendMouseState(mb_left,MOUSE_RELEASED);
 }
+
+

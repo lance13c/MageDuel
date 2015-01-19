@@ -10,10 +10,10 @@ if (client == eventid){
         case NETWORK_PLAY:
         {
             var buff = ds_map_find_value(async_load, "buffer");
-            cmd = buffer_read(buff, buffer_u32);
+            cmd = buffer_read(buff, buffer_u16);
             // Read all data...
             // Get number of (player's data) sent
-            global.playerTotal = buffer_read(buff, buffer_u32);
+            global.playerTotal = buffer_read(buff, buffer_u16);
             
             if (cmd == PLAYER_CMD){ 
                 
