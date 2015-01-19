@@ -10,6 +10,7 @@ var sock = ds_map_find_value(async_load, "id");
 
 var inst = ds_map_find_value(Clients, sock);
 
+show_debug_message(string(inst) + " : " + string(cmd)); // Debuging
 
     // Check if KEY command
     if (cmd == KEY_CMD){
