@@ -39,6 +39,49 @@ if (keys[DOWN_KEY]){
 if (keys[RIGHT_KEY]){
     phy_speed_x = playerSpeed;
 }
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Spell Activation
+
+// Getting the method names
+var create =  script_get_name(activeSpell) + "_create";
+var active = script_get_name(activeSpell) + "_active"
+var destroy = script_get_name(activeSpell) + "_destroy"
+
+// Assigning the methods from the method names
+var scr_create = asset_get_index(create);
+var scr_active = asset_get_index(active);
+var scr_destroy = asset_get_index(destroy);
+
+
+// Mouse Checks - Do nothing if MOUSE_UP
+if (mouseInputs[mb_left] == MOUSE_PRESSED){
+    script_execute(scr_create);
+}else if (mouseInputs[mb_left] == MOUSE_DOWN){
+    script_execute(scr_active,spellDir);
+}else if (mouseInputs[mb_left] == MOUSE_RELEASED){
+    script_execute(scr_destroy);
+}
 </string>
           </argument>
         </arguments>

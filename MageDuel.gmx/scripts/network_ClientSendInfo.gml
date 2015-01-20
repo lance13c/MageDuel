@@ -36,6 +36,9 @@ if (device_mouse_check_button_pressed(0,mb_left)){
 // Mouse Down
 }else if (device_mouse_check_button(0,mb_left)){
     network_SendMouseState(mb_left,MOUSE_DOWN);
+// Mouse Up
+}else if (!device_mouse_check_button(0,mb_left)){
+    network_SendMouseState(mb_left,MOUSE_UP);
 //Mouse Released
 }else if (device_mouse_check_button_released(0,mb_left)){
     network_SendMouseState(mb_left,MOUSE_RELEASED);

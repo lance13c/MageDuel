@@ -12,15 +12,16 @@ if (client == eventid){
             var buff = ds_map_find_value(async_load, "buffer");
             cmd = buffer_read(buff, buffer_u16);
             // Read all data...
-            // Get number of (player's data) sent
-            global.playerTotal = buffer_read(buff, buffer_u16);
             
-            if (cmd == PLAYER_CMD){ 
+            
+            if (cmd == PLAYER_CMD){
                 
                 // Read out OUR location  (follow scrolling maps)
                 //clientx = buffer_read(buff, buffer_s16); // x
                 //clienty = buffer_read(buff, buffer_s16); // y
             
+                // Get number of (player's data) sent
+                global.playerTotal = buffer_read(buff, buffer_u16);
                 
                 // Clear list and add this client's information
                 ds_list_clear(playerDataR);
@@ -39,6 +40,9 @@ if (client == eventid){
                 }
             }else if(cmd == SETUP_CMD){
                 // Clear list and add this client's information
+                // Get number of (player's data) sent
+                global.playerTotal = buffer_read(buff, buffer_u16);
+                
                 ds_list_clear(playerDataRSetup);
                 
                 //for(var i=0;i<global.playerTotal;i++){ // Might be mistake
@@ -49,6 +53,16 @@ if (client == eventid){
                     //playerImageBlend =  buffer_read(buff,buffer_s32); //image_blend
                     localPlayerID = buffer_read(buff,buffer_s16); //playerID;
                 //}
+            }else if(cmd == SPELL_CMD){
+                ds_list_clear(spellDataR)
+                
+                var numOfSpells = buffer_read(buff, buffer_f16)// Number of spells being sent
+                ds_list_add(spellDataR, numOfSpells);
+                for(var i=0;i<numOfSpells;i++){
+                    ds_list_add(spellDataR, buffer_read(buff,buffer_string)); //spell
+                    ds_list_add(spellDataR, buffer_read(buff,buffer_s16)); //x
+                    ds_list_add(spellDataR, buffer_read(buff,buffer_s16)); //y
+                }
             }
         } 
     }

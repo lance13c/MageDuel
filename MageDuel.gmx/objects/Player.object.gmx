@@ -37,17 +37,17 @@ system = "";
 with (Client){
     other.system = system;
 }
-activeSpell = spell_shield;
+activeSpell = "spell_shield";
 maxSpells = 3;
 activeSpellIndex = 0;
+
+// This tells the player whether to draw the spell or not;
+drawSpell = false;
 
 
 phy_fixed_rotation = true;
 
-// Keys : left,right,jump,down | 0-3
-for (var i=0;i&lt;4;i++){
-    keys[i] = false;
-}
+
 
 mana = 100; // Magic Power
 manaRegen = 5;
@@ -57,6 +57,22 @@ playerSpeed = _Player_Movement_Speed;
 spellsKnown[0] = spell_shield;
 spellsKnown[1] = spell_shield;
 spellsKnown[2] = spell_shield;
+
+
+// NETWORK PLAYER VARIABLES -------------------------------------------
+
+// Keys : left,right,jump,down | 0-3
+for (var i=0;i&lt;4;i++){
+    keys[i] = false;
+}
+
+// Mouse Inputs, [Mouse Button] = Mouse State
+mouseInputs[mb_left] = MOUSE_UP;
+mouseInputs[mb_right] = MOUSE_UP;
+mouseInputs[mb_middle] = MOUSE_UP;
+
+// This is the direction the spell should be created in
+spellDir = 0;
 </string>
           </argument>
         </arguments>

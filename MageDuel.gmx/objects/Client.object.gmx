@@ -33,9 +33,9 @@ clienty = room_height*(1/5);// Not important
 localPlayerName = "";
 
 //Spells Known to Player
-spellsKnown[0] = "spell_shield";
-spellsKnown[1] = "spell_shield";
-spellsKnown[2] = "spell_shield";
+spellsKnown[0] = "";
+spellsKnown[1] = "";
+spellsKnown[2] = "";
 
 //Transfer Local Data to Client
 with(LocalData){
@@ -45,8 +45,17 @@ with(LocalData){
     other.spellsKnown[2] = self.spellsKnown[2];
 }
 
+ // The main partical system
+system = part_system_create();
 
-system = part_system_create(); // The main partical system
+
+// This tells whether the current spell is initialized
+//     Using the spellname_create script
+initSpell = false; 
+
+activeSpellIndex = 0;
+activeSpell = spellsKnown[activeSpellIndex];
+maxSpells = 3;
 
 playerX = 0;
 playerY = 0;
@@ -55,11 +64,9 @@ playerSpriteIndex = -1;
 playerImageIndex = -1;
 playerImageBlend = -1;
 
-activeSpell = "spell_shield";
-maxSpells = 3;
-activeSpellIndex = 0;
 
-mana = 100; // Magic Power
+
+localMana = 100; // Magic Power
 manaRegen = 5;
 playerSpeed = _Player_Movement_Speed;
 
@@ -70,7 +77,7 @@ localPlayerID = -1; // Not Assigned - Get this in setup
 
 
 // Network Messages
-buff = buffer_create(256, buffer_grow, 1);
+buff = buffer_create(1024, buffer_grow, 1);
 
 //Client Socket
 client = network_create_socket(global.ServerType);
@@ -79,6 +86,7 @@ global.client = client;
 global.NetworkState = NETWORK_PLAY;
 
 playerDataR = ds_list_create(); // The Player Data Recieved
+spellDataR = ds_list_create(); // The Spell Data Recieved
 playerDataRSetup = ds_list_create(); // Setup Data for the local Player, received by server
 playerDataS = ds_list_create(); // The Player Data to Send
 
@@ -135,6 +143,46 @@ network_SendStillAlive();
       </action>
     </event>
     <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>601</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_execute_script</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>9</kind>
+            <script>spell_init_spell</script>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>601</id>
@@ -243,12 +291,34 @@ network_SendStillAlive();
 
 // Now loop through all active sprites and draw them
 // If this is server, do not draw, Draw only when we know have the playerID;
-if (!global.haveserver &amp;&amp; localPlayerID != -1){
+if (!global.haveserver &amp;&amp; localPlayerID != -1){    
     if (!ds_list_empty(playerDataR)){
         // Get the player data and draw
         draw_player(playerDataR);
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Drawing the Spell Particals
+draw_spell();
 </string>
           </argument>
         </arguments>

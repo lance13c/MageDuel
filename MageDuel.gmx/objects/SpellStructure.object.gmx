@@ -34,6 +34,42 @@
 //var activeSpell;
 //var system;
 //script_exists(on_create_spell_shield);
+
+// This is if the spell has changed what it is displaying
+// The servers reads this to tell whether to draw it or not
+changed = true;
+xPre = x; // The x on startup
+yPre = y; // The y on startup
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Check if this Spell Structure has changed
+// Only the Server can change it back the spellChanged back to false
+// Only do this if there is a server
+if (global.haveServer){
+    if (xPre != x || yPre != y){
+        changed = true;
+    }
+}
 </string>
           </argument>
         </arguments>

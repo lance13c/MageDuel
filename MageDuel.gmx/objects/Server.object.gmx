@@ -33,6 +33,7 @@ global.haveserver = true;
 
 broadcast_buffer = buffer_create(32, buffer_fixed, 1);
 player_buffer = buffer_create(16384, buffer_fixed, 1);
+spell_buffer = buffer_create(16384, buffer_fixed, 1);
 
 Clients = ds_map_create(); // Players
 socketlist = ds_list_create(); // Client socket

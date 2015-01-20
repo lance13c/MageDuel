@@ -26,7 +26,7 @@
         <script>scripts\spell_shield_create.gml</script>
         <script>scripts\spell_shield_active.gml</script>
         <script>scripts\spell_shield_destroy.gml</script>
-        <script>scripts\spell_shield_on_create.gml</script>
+        <script>scripts\spell_shield_part_create.gml</script>
       </scripts>
       <script>scripts\spell_system.gml</script>
     </scripts>
@@ -39,6 +39,7 @@
       <script>scripts\network_ServerSendSetupInfo.gml</script>
       <script>scripts\network_ServerRecievedData.gml</script>
       <script>scripts\network_ServerSendPlayerInfo.gml</script>
+      <script>scripts\network_ServerSendSpellInfo.gml</script>
       <script>scripts\network_ClientRecievedData.gml</script>
       <script>scripts\network_ClientSendInfo.gml</script>
     </scripts>
@@ -47,8 +48,11 @@
     </scripts>
     <script>scripts\draw_local_player.gml</script>
     <script>scripts\draw_player.gml</script>
+    <script>scripts\draw_spell.gml</script>
     <script>scripts\getPlayerID.gml</script>
     <script>scripts\removePlayerID.gml</script>
+    <script>scripts\spell_init_spell.gml</script>
+    <script>scripts\setLocalVar.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\Player</object>
@@ -69,12 +73,13 @@
     <room>rooms\Start_Room</room>
     <room>rooms\Battle_Room_01</room>
   </rooms>
-  <constants number="25">
+  <constants number="26">
     <constant name="MAX_PLAYERS">8</constant>
     <constant name="NETWORK_PLAY">1</constant>
     <constant name="NETWORK_LOGIN">0</constant>
-    <constant name="MOUSE_RELEASED">2</constant>
-    <constant name="MOUSE_DOWN">1</constant>
+    <constant name="MOUSE_UP">3</constant>
+    <constant name="MOUSE_DOWN">2</constant>
+    <constant name="MOUSE_RELEASED">1</constant>
     <constant name="MOUSE_PRESSED">0</constant>
     <constant name="KEY_PRESSED">1</constant>
     <constant name="KEY_UNPRESSED">0</constant>

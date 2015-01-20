@@ -1,5 +1,14 @@
-// Spell Partical Creation in SpellStructure
+// Spell Partical Creation in SpellStructure, This is what the clients will use
+//    to display the spell. The server will manage the collisions and objects
 
 //part_emitter_burst(system,e_shield1,p_shield1,5);
 //draw_self();
-part_particles_create(system,x,y,p_shield1,1);
+
+/// arg0 = x
+/// arg1 = y
+
+// For different spells, different amounts of particals will be created
+//  and it could be put in a different location relitive to the Spell Structure's
+//  x and y
+
+part_particles_create(system,argument0,argument1,p_shield1,1);

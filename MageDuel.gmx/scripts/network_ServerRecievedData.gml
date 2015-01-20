@@ -42,10 +42,14 @@ show_debug_message(string(inst) + " : " + string(cmd)); // Debuging
         inst.name = buffer_read(buff, buffer_string);
     }else if (cmd == MOUSE_CMD){
         // Read button
-        var key = buffer_read(buff, buffer_s16);
+        var mouseButton = buffer_read(buff, buffer_s16);
         // Read State , 0,1,2 : pressed, down, released
-        var pressed = buffer_read(buff, buffer_s16);
+        var mouseState = buffer_read(buff, buffer_s16);
         var dir = buffer_read(buff, buffer_s16); // Direction
+        
+        inst.mouseInputs[mouseButton] = mouseState;
+        inst.spellDir = dir; // Only need to set this when spell is active
+        
     }else if (cmd == PING_CMD){
         // keep alive so ignore
     }else if (cmd == SPELL_CMD){

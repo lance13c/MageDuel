@@ -31,7 +31,7 @@ if (global.playerTotal > 0){
     
     //Send data to clients
     
-    for(i=0;i<global.playerTotal;i++){
+    for(var i=0;i<global.playerTotal;i++){
         // get socket
         var sock = ds_list_find_value(socketlist,i);
         
