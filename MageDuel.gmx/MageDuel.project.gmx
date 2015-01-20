@@ -75,7 +75,9 @@
     <room>rooms\Start_Room</room>
     <room>rooms\Battle_Room_01</room>
   </rooms>
-  <constants number="30">
+  <constants number="32">
+    <constant name="MOUSE_WHEEL_DOWN">10</constant>
+    <constant name="MOUSE_WHEEL_UP">11</constant>
     <constant name="GAME_STYLE_LOCAL">1</constant>
     <constant name="GAME_STYLE_NET">0</constant>
     <constant name="MAX_PLAYERS">8</constant>

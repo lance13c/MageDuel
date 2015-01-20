@@ -77,6 +77,10 @@ mouseInputs[mb_left] = MOUSE_UP;
 mouseInputs[mb_right] = MOUSE_UP;
 mouseInputs[mb_middle] = MOUSE_UP;
 
+// Mouse Wheel Inputs
+mouseWheelInputs[MOUSE_WHEEL_UP] = false;
+mouseWheelInputs[MOUSE_WHEEL_DOWN] = false;
+
 // This is the direction the spell should be created in
 spellDir = 0;
 </string>

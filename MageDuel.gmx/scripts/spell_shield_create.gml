@@ -4,7 +4,7 @@
 angle = 50; // Half of how wide of a curve and SpellStructures it makes
 inc = 3; // The amount of space between each SpellStructure
 len = 50; // Pixels Aways for Player
-dir = point_direction(x,y,mouse_x,mouse_y); // direction middle of curve is
+dir = argument0 // direction middle of curve is
 
 // Other Side of Curve
 for(i=0;i<(angle);i+=inc){

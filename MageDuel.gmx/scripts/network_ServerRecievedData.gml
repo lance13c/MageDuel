@@ -45,14 +45,21 @@ show_debug_message(string(inst) + " : " + string(cmd)); // Debuging
         var mouseButton = buffer_read(buff, buffer_s16);
         // Read State , 0,1,2 : pressed, down, released
         var mouseState = buffer_read(buff, buffer_s16);
-        var dir = buffer_read(buff, buffer_s16); // Direction
+        var mouseX =  buffer_read(buff, buffer_s16); // Get Mouse X Position
+        var mouseY =  buffer_read(buff, buffer_s16); // Get Mouse Y Position
         
-        inst.mouseInputs[mouseButton] = mouseState;
-        inst.spellDir = dir; // Only need to set this when spell is active
+        var dir = point_direction(inst.x,inst.y,mouseX,mouseY); // Direction
+        
+        if (mouseButton == MOUSE_WHEEL_UP || mouseButton == MOUSE_WHEEL_DOWN){
+            inst.mouseWheelInputs[mouseButton] = mouseState;
+        }else{
+            inst.mouseInputs[mouseButton] = mouseState;
+            inst.spellDir = dir; // Only need to set this when spell is active
+        }
+        
         
     }else if (cmd == PING_CMD){
         // keep alive so ignore
-    }else if (cmd == SPELL_CMD){
         // Need direction of mouse and player
         // Need mouse x and y position
         //inst.activeSpell = buffer_read(buff, buffer_string);

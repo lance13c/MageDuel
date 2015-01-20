@@ -76,13 +76,59 @@ if (activeSpell != ""){
     
     // Mouse Checks - Do nothing if MOUSE_UP
     if (mouseInputs[mb_left] == MOUSE_PRESSED){
-        script_execute(scr_create);
+        script_execute(scr_create,spellDir)
     }else if (mouseInputs[mb_left] == MOUSE_DOWN){
         script_execute(scr_active,spellDir);
     }else if (mouseInputs[mb_left] == MOUSE_RELEASED){
         script_execute(scr_destroy);
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Aux and ActiveSpellIndex Controls
+ // This makes it so the spell activation does not get messed up
+    // Mouse Wheel, changeds activeSpellIndex
+    
+    //The server is incharge of setting the mouseWheelInputs to true
+    //PROBLEM, SHUFFLING THROUGH FAST, INPUT ALWAYS 3 FOR ONE OF THEM
+    /*
+    if (mouseWheelInputs[MOUSE_WHEEL_UP]){
+        if (activeSpellIndex &gt;= maxSpells-1){
+            activeSpellIndex = 0;
+        }else{
+            activeSpellIndex += 1;
+        }
+        mouseWheelInputs[MOUSE_WHEEL_UP] = false; // Reset to false,
+    }else if (mouseWheelInputs[MOUSE_WHEEL_DOWN]){
+        if (activeSpellIndex &lt;= 0){
+            activeSpellIndex = maxSpells-1;
+        }else{
+            activeSpellIndex -= 1;
+        }
+        mouseWheelInputs[MOUSE_WHEEL_DOWN] = false; // Reset to false,
+    }   
+    */
+
+//Sets the current spell
+activeSpell = spellsKnown[activeSpellIndex];
 </string>
           </argument>
         </arguments>

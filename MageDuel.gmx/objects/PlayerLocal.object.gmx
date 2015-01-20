@@ -78,7 +78,8 @@ if (activeSpell != ""){
     
     
     if (device_mouse_check_button_pressed(0,mb_left)){
-        script_execute(scr_create); 
+        var dir = point_direction(x,y,mouse_x,mouse_y); // direction middle of curve is
+        script_execute(scr_create,dir);
     }
     if (device_mouse_check_button(0,mb_left)){
         var dir = point_direction(x,y,mouse_x,mouse_y);

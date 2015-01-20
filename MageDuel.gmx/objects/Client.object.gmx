@@ -265,30 +265,10 @@ if (!global.haveserver &amp;&amp; localPlayerID != -1){
     if (!ds_list_empty(playerDataR)){
         // Get the player data and draw
         draw_player(playerDataR);
+        /// Drawing the Spell Particals
+        draw_spell();
     }
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Drawing the Spell Particals
-draw_spell();
 </string>
           </argument>
         </arguments>
