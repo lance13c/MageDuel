@@ -10,7 +10,7 @@ if (client == eventid){
         case NETWORK_PLAY:
         {
             var buff = ds_map_find_value(async_load, "buffer");
-            cmd = buffer_read(buff, buffer_u16);
+            cmd = buffer_read(buff, buffer_s16);
             // Read all data...
             
             
@@ -21,7 +21,7 @@ if (client == eventid){
                 //clienty = buffer_read(buff, buffer_s16); // y
             
                 // Get number of (player's data) sent
-                global.playerTotal = buffer_read(buff, buffer_u16);
+                global.playerTotal = buffer_read(buff, buffer_s16);
                 
                 // Clear list and add this client's information
                 ds_list_clear(playerDataR);
@@ -54,9 +54,9 @@ if (client == eventid){
                     localPlayerID = buffer_read(buff,buffer_s16); //playerID;
                 //}
             }else if(cmd == SPELL_CMD){
-                ds_list_clear(spellDataR)
+                ds_list_clear(spellDataR);
                 
-                var numOfSpells = buffer_read(buff, buffer_f16)// Number of spells being sent
+                var numOfSpells = buffer_read(buff, buffer_s16)// Number of spells being sent
                 ds_list_add(spellDataR, numOfSpells);
                 for(var i=0;i<numOfSpells;i++){
                     ds_list_add(spellDataR, buffer_read(buff,buffer_string)); //spell

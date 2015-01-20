@@ -62,25 +62,26 @@ if (keys[RIGHT_KEY]){
           <argument>
             <kind>1</kind>
             <string>/// Spell Activation
-
-// Getting the method names
-var create =  script_get_name(activeSpell) + "_create";
-var active = script_get_name(activeSpell) + "_active"
-var destroy = script_get_name(activeSpell) + "_destroy"
-
-// Assigning the methods from the method names
-var scr_create = asset_get_index(create);
-var scr_active = asset_get_index(active);
-var scr_destroy = asset_get_index(destroy);
-
-
-// Mouse Checks - Do nothing if MOUSE_UP
-if (mouseInputs[mb_left] == MOUSE_PRESSED){
-    script_execute(scr_create);
-}else if (mouseInputs[mb_left] == MOUSE_DOWN){
-    script_execute(scr_active,spellDir);
-}else if (mouseInputs[mb_left] == MOUSE_RELEASED){
-    script_execute(scr_destroy);
+if (activeSpell != ""){
+    // Getting the method names
+    var create =  activeSpell + "_create";
+    var active = activeSpell + "_active"
+    var destroy = activeSpell + "_destroy"
+    
+    // Assigning the methods from the method names
+    var scr_create = asset_get_index(create);
+    var scr_active = asset_get_index(active);
+    var scr_destroy = asset_get_index(destroy);
+    
+    
+    // Mouse Checks - Do nothing if MOUSE_UP
+    if (mouseInputs[mb_left] == MOUSE_PRESSED){
+        script_execute(scr_create);
+    }else if (mouseInputs[mb_left] == MOUSE_DOWN){
+        script_execute(scr_active,spellDir);
+    }else if (mouseInputs[mb_left] == MOUSE_RELEASED){
+        script_execute(scr_destroy);
+    }
 }
 </string>
           </argument>

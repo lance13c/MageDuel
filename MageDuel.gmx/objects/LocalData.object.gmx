@@ -46,12 +46,19 @@ for (var i=0;i&lt;MAX_PLAYERS; i++){
     ds_list_add(global.openPlayerID,false); // False if ID not taken
 }
 
+// This tells the SpellStructures and Players what type of game this is.
+global.gameStyle = GAME_STYLE_NET; // Hard Coded, this will be changed later
+
 localPlayerName[0] = "Demo"; // Player 0 name, This is in case there are multiple local players
 
 //Spells Known to Player
 spellsKnown[0] = "spell_shield";
 spellsKnown[1] = "spell_shield";
 spellsKnown[2] = "spell_shield";
+
+// All current spells
+spellList = ds_list_create();
+ds_list_add(spellList,"spell_shield");
 </string>
           </argument>
         </arguments>

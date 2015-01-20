@@ -30,14 +30,20 @@ playerID = getPlayerID();// How to identify the player, to choose creation of lo
 // Player total updated in server
 
 name = "";
+// Lists of all particals for each spell
+partsForSpells = ds_map_create(); // Gets filled with initSpells()
 with (LocalData){
     name = localPlayerName[0];
+    initSpells(); // Initializes all spells, let client know all particals
 }
 system = "";
 with (Client){
     other.system = system;
 }
-activeSpell = "spell_shield";
+
+
+
+activeSpell = "";
 maxSpells = 3;
 activeSpellIndex = 0;
 
@@ -53,10 +59,10 @@ mana = 100; // Magic Power
 manaRegen = 5;
 playerSpeed = _Player_Movement_Speed;
 
-//Spells Known to Player
-spellsKnown[0] = spell_shield;
-spellsKnown[1] = spell_shield;
-spellsKnown[2] = spell_shield;
+//Spells Known to Player - IN LOCALDATA, network players set by server
+spellsKnown[0] = "";
+spellsKnown[1] = "";
+spellsKnown[2] = "";
 
 
 // NETWORK PLAYER VARIABLES -------------------------------------------

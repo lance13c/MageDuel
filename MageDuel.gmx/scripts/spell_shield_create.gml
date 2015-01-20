@@ -15,7 +15,10 @@ for(i=0;i<(angle);i+=inc){
         system = other.system;
         activeSpell = other.activeSpell; // String Value
         belongTo = other.playerID; // The player this belongs to
-        script_execute(spell_shield_on_create); // This is specific to this script
+        spell = asset_get_index(activeSpell); // All spell structures need to have an activeSpell
+        parts = ds_map_find_value(other.partsForSpells,activeSpell); // Looks up the particals
+        partsAmount = array_length_1d(parts); // The amount of particals
+        //spell_shield_part_create(); // This is specific to this script
     }
 }
 // One Side of Curve
@@ -26,6 +29,10 @@ for(i=0;i<(angle);i+=inc){
         offset = other.i; // This is the given angle position
         system = other.system;
         activeSpell = other.activeSpell; // String Value
-        script_execute(spell_shield_on_create);
+        belongTo = other.playerID; // The player this belongs to
+        spell = asset_get_index(activeSpell); // All spell structures need to have an activeSpell
+        parts = ds_map_find_value(other.partsForSpells,activeSpell); // Looks up the particals
+        partsAmount = array_length_1d(parts); // The amount of particals
+        //spell_shield_part_create();
     }
 }

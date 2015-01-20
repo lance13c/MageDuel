@@ -7,8 +7,8 @@ if (global.playerTotal > 0){
     buffer_seek(player_buffer, buffer_seek_start, 0);
     
     
-    buffer_write(player_buffer, buffer_u16, PLAYER_CMD); // Tell Client this is player data
-    buffer_write(player_buffer, buffer_u16, global.playerTotal);
+    buffer_write(player_buffer, buffer_s16, PLAYER_CMD); // Tell Client this is player data
+    buffer_write(player_buffer, buffer_s16, global.playerTotal);
     //buffer_write(player_buffer, buffer_s16, 0); // client x
     //buffer_write(player_buffer, buffer_s16, 0); // client y
     
@@ -23,8 +23,8 @@ if (global.playerTotal > 0){
         buffer_write(other.player_buffer, buffer_string, name);
         buffer_write(other.player_buffer, buffer_s16, playerID); // playerID
         buffer_write(other.player_buffer, buffer_string,script_get_name(activeSpell)); // player active spell
-        buffer_write(other.player_buffer, buffer_u16, activeSpellIndex); // player active spell index
-        buffer_write(other.player_buffer, buffer_u16, mana); // player mana
+        buffer_write(other.player_buffer, buffer_s16, activeSpellIndex); // player active spell index
+        buffer_write(other.player_buffer, buffer_s16, mana); // player mana
     }
     
     var buffer_size = buffer_tell(player_buffer);

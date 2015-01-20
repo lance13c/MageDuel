@@ -39,6 +39,7 @@
       <script>scripts\network_ServerSendSetupInfo.gml</script>
       <script>scripts\network_ServerRecievedData.gml</script>
       <script>scripts\network_ServerSendPlayerInfo.gml</script>
+      <script>scripts\network_SendSpellList.gml</script>
       <script>scripts\network_ServerSendSpellInfo.gml</script>
       <script>scripts\network_ClientRecievedData.gml</script>
       <script>scripts\network_ClientSendInfo.gml</script>
@@ -53,6 +54,7 @@
     <script>scripts\removePlayerID.gml</script>
     <script>scripts\spell_init_spell.gml</script>
     <script>scripts\setLocalVar.gml</script>
+    <script>scripts\initSpells.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\Player</object>
@@ -73,7 +75,9 @@
     <room>rooms\Start_Room</room>
     <room>rooms\Battle_Room_01</room>
   </rooms>
-  <constants number="26">
+  <constants number="30">
+    <constant name="GAME_STYLE_LOCAL">1</constant>
+    <constant name="GAME_STYLE_NET">0</constant>
     <constant name="MAX_PLAYERS">8</constant>
     <constant name="NETWORK_PLAY">1</constant>
     <constant name="NETWORK_LOGIN">0</constant>
@@ -87,6 +91,7 @@
     <constant name="JUMP_KEY">2</constant>
     <constant name="RIGHT_KEY">1</constant>
     <constant name="LEFT_KEY">0</constant>
+    <constant name="SPELL_LIST_CMD">9</constant>
     <constant name="END_CMD">8</constant>
     <constant name="MOUSE_CMD">7</constant>
     <constant name="PARTICAL_CMD">6</constant>
@@ -95,6 +100,7 @@
     <constant name="SETUP_CMD">3</constant>
     <constant name="PING_CMD">2</constant>
     <constant name="NAME_CMD">1</constant>
+    <constant name="MAX_SPELLS">3</constant>
     <constant name="KEY_CMD">0</constant>
     <constant name="_Player_Center_X">32</constant>
     <constant name="_Player_Center_Y">32</constant>

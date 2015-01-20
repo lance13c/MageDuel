@@ -55,7 +55,7 @@ show_debug_message(string(inst) + " : " + string(cmd)); // Debuging
     }else if (cmd == SPELL_CMD){
         // Need direction of mouse and player
         // Need mouse x and y position
-        inst.activeSpell = buffer_read(buff, buffer_string);
+        //inst.activeSpell = buffer_read(buff, buffer_string);
     }else if (cmd == PARTICAL_CMD){
         // get x
         // get y
@@ -65,4 +65,8 @@ show_debug_message(string(inst) + " : " + string(cmd)); // Debuging
         // put is ds_list of particals to display, set with part_particles_create();
         
         //This might not be nessessary
+    }else if (cmd == SPELL_LIST_CMD){
+        for(var k=0;k<MAX_SPELLS;k++){
+            inst.spellsKnown[k] = buffer_read(buff,buffer_string);
+        }
     }

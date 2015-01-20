@@ -40,6 +40,8 @@
 changed = true;
 xPre = x; // The x on startup
 yPre = y; // The y on startup
+
+
 </string>
           </argument>
         </arguments>
@@ -65,7 +67,7 @@ yPre = y; // The y on startup
             <string>/// Check if this Spell Structure has changed
 // Only the Server can change it back the spellChanged back to false
 // Only do this if there is a server
-if (global.haveServer){
+if (global.gameStyle == GAME_STYLE_NET){
     if (xPre != x || yPre != y){
         changed = true;
     }
@@ -92,9 +94,14 @@ if (global.haveServer){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Run Spell Particals
+            <string>/// Runs Spell for all particals assigned to the spell
 
-script_execute(activeSpell);
+// The ds_list_size returns how many particals there are
+
+//Test with array instead for better preformance
+for (var i=0;i&lt;partsAmount;i++){
+    script_execute(spell,x,y,parts[i]); // Look for better preformance option
+}
 </string>
           </argument>
         </arguments>

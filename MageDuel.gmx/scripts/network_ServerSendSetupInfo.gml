@@ -6,8 +6,8 @@ var sock = argument1 // The socket of the instance
 //global.player_buffer = player_buffer;
 buffer_seek(player_buffer, buffer_seek_start, 0);
 
-buffer_write(player_buffer, buffer_u16, SETUP_CMD); // Tell Client this is player data
-buffer_write(player_buffer, buffer_u16, global.playerTotal); // total amount of players
+buffer_write(player_buffer, buffer_s16, SETUP_CMD); // Tell Client this is player data
+buffer_write(player_buffer, buffer_s16, global.playerTotal); // total amount of players
 
 with(inst){
     //var sock = ds_list_find_value(other.socketlist,playerID);

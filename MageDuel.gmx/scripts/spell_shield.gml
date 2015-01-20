@@ -6,9 +6,10 @@
 
 /// arg0 = x
 /// arg1 = y
+/// arg2 = partical
 
 // For different spells, different amounts of particals will be created
 //  and it could be put in a different location relitive to the Spell Structure's
 //  x and y
 
-part_particles_create(system,argument0,argument1,p_shield1,1);
+part_particles_create(system,argument0,argument1,argument2,1);

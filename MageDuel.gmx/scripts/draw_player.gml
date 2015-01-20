@@ -1,7 +1,7 @@
 // This will draw the given player
 
 /// Draw Player Info -- FOR CLIENT DRAW ONLY, some varriables are different
-// This is the gui that will appear above the players head relaying player info
+// This is also the gui that will appear above the players head relaying player info
 
 // arg0 = ds_list of the player data receieved
 playerDataR = argument0;

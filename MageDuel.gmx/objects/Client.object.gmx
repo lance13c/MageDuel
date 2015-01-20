@@ -32,21 +32,28 @@ clienty = room_height*(1/5);// Not important
 //LOCAL PLAYER ATTRIBUTES:
 localPlayerName = "";
 
+
+// The main partical system
+system = part_system_create();
+
+
 //Spells Known to Player
 spellsKnown[0] = "";
 spellsKnown[1] = "";
 spellsKnown[2] = "";
 
+// Lists of all particals for each spell
+partsForSpells = ds_map_create(); // Gets filled with initSpells()
+
 //Transfer Local Data to Client
+// Init all spells
 with(LocalData){
     other.localPlayerName = self.localPlayerName[0];
     other.spellsKnown[0] = self.spellsKnown[0];
     other.spellsKnown[1] = self.spellsKnown[1];
     other.spellsKnown[2] = self.spellsKnown[2];
+    initSpells(); // Initializes all spells, let client know all particals
 }
-
- // The main partical system
-system = part_system_create();
 
 
 // This tells whether the current spell is initialized
@@ -98,6 +105,9 @@ if (err != 0){
     game_restart();
 }
 
+// Send spellsKnown to server
+network_SendSpellList();
+
 // Client has connected to the server, now send "player_name";
 network_SendName( localPlayerName );
 alarm[0] = 120;
@@ -143,46 +153,6 @@ network_SendStillAlive();
       </action>
     </event>
     <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>9</kind>
-            <script>spell_init_spell</script>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-        </arguments>
-      </action>
       <action>
         <libid>1</libid>
         <id>601</id>

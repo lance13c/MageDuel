@@ -28,7 +28,7 @@
             <string>///Set Up Server
 
 global.client = 100; // Just needed to instatiate this variable
-// global.PlayerTotal = 0; Already created in Menu Setup
+
 global.haveserver = true;
 
 broadcast_buffer = buffer_create(32, buffer_fixed, 1);
@@ -119,11 +119,12 @@ alarm[0] = 60;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Send player data to All attached clients
+            <string>/// Send player and spell data to all clients
 
 //Every Frame
 
 network_ServerSendPlayerInfo();
+network_ServerSendSpellInfo();
 
 </string>
           </argument>
