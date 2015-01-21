@@ -76,7 +76,7 @@ keys_secondary_map = ds_map_create();
 
     ds_map_add(keys_default_map,JUMP_KEY,ord("W"));
     ds_map_add(keys_primary_map,JUMP_KEY,ord("W"));
-    ds_map_add(keys_secondary_map,JUMP_KEY,vk_up); // -1  = No Value
+    ds_map_add(keys_secondary_map,JUMP_KEY,vk_space); // -1  = No Value
     
     ds_map_add(keys_default_map,LEFT_KEY,ord("A"));
     ds_map_add(keys_primary_map,LEFT_KEY,ord("A"));

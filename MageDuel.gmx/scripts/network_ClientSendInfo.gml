@@ -3,28 +3,28 @@
 //Key Map these
 
 // Jump
-if (keyboard_check(ord('W')) || keyboard_check(vk_space)){
+if (keyboard_CheckMaps_Held(JUMP_KEY)){
     network_SendKey(JUMP_KEY,KEY_PRESSED);
 }else{
     network_SendKey(JUMP_KEY,KEY_UNPRESSED);
 }
 
 // Move Left
-if (keyboard_check(ord('A'))){
+if (keyboard_CheckMaps_Held(LEFT_KEY)){
     network_SendKey(LEFT_KEY,KEY_PRESSED);
 }else{
     network_SendKey(LEFT_KEY,KEY_UNPRESSED);
 }
 
 // Move Right
-if (keyboard_CheckMaps_Held(RIGHT_KEY)){         // Experiment
+if (keyboard_CheckMaps_Held(RIGHT_KEY)){
     network_SendKey(RIGHT_KEY,KEY_PRESSED);
 }else{
     network_SendKey(RIGHT_KEY,KEY_UNPRESSED);
 }
 
 // Move Down
-if (keyboard_check(ord('S'))){
+if (keyboard_CheckMaps_Held(DOWN_KEY)){
     network_SendKey(DOWN_KEY,KEY_PRESSED);
 }else{
     network_SendKey(DOWN_KEY,KEY_UNPRESSED);

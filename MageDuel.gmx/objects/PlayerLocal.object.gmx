@@ -27,19 +27,19 @@
             <kind>1</kind>
             <string>///Movement
 
-if (keyboard_check(ord('W')) || keyboard_check(vk_space)){
+if (keyboard_CheckMaps_Held(JUMP_KEY)){
     phy_speed_y = -1*playerSpeed;
     //physics_apply_local_force(_Player_Center_X,_Player_Center_Y,_Player_Center_X,_Player_Center_Y + -1*_Player_Movement_Force);
 }
-if (keyboard_check(ord('A'))){
+if (keyboard_CheckMaps_Held(LEFT_KEY)){
     phy_speed_x = -1* playerSpeed;
     //physics_apply_local_force(_Player_Center_X,_Player_Center_Y,_Player_Center_X + -1*_Player_Movement_Force,_Player_Center_Y);
 }
-if (keyboard_check(ord('S'))){
+if (keyboard_CheckMaps_Held(DOWN_KEY)){
     //phy_speed_y = _Player_Movement_Speed;
    physics_apply_local_force(_Player_Center_X,_Player_Center_Y,_Player_Center_X,_Player_Center_Y + 1*_Player_Movement_Force);
 }
-if (keyboard_check(ord('D'))){
+if (keyboard_CheckMaps_Held(RIGHT_KEY)){
     phy_speed_x = playerSpeed;
     //physics_apply_local_force(_Player_Center_X,_Player_Center_Y,_Player_Center_X  + _Player_Movement_Force,_Player_Center_Y);
 }
@@ -113,14 +113,14 @@ if (activeSpell != ""){
 
 if (!device_mouse_check_button(0,mb_left)){ // This makes it so the spell activation does not get messed up
     // Mouse Wheel, changeds activeSpellIndex
-    if (mouse_wheel_up() || keyboard_check_pressed(ord('E'))){
+    if (keyboard_CheckMaps_Held(TOGGLE_SPELL_FORWARD)){
         if (activeSpellIndex &gt;= maxSpells-1){
             activeSpellIndex = 0;
         }else{
             activeSpellIndex += 1;
         }
     }
-    if (mouse_wheel_down() || keyboard_check_pressed(ord('Q'))){
+    if (keyboard_CheckMaps_Held(TOGGLE_SPELL_BACKWARD)){
         if (activeSpellIndex &lt;= 0){
             activeSpellIndex = maxSpells-1;
         }else{
