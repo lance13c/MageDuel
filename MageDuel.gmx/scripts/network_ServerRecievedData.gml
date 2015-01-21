@@ -19,18 +19,18 @@ show_debug_message(string(inst) + " : " + string(cmd)); // Debuging
         var key = buffer_read(buff, buffer_s16);
         
         // Is key pressed or not
-        var pressed = buffer_read(buff, buffer_s16); // PRESSED = 1, UNPRESSED = 0
+        var pressed = buffer_read(buff, buffer_bool); // PRESSED = 1, UNPRESSED = 0
         
         // Translate keypress into index for player array
-        if (key == ord('W') || key == vk_space){
-            key = JUMP_KEY;
-        }else if (key == ord('A')){
-            key = LEFT_KEY;
-        }else if (key == ord('D')){
-            key = RIGHT_KEY;
-        }else if (key == ord('S')){
-            key = DOWN_KEY;
-        }
+        //if (key == ord('W') || key == vk_space){
+            //key = JUMP_KEY;
+        //}else if (key == ord('A')){
+            //key = LEFT_KEY;
+        //}else if (key == ord('D')){
+            //key = RIGHT_KEY;
+        //}else if (key == ord('S')){
+            //key = DOWN_KEY;
+        //}else if (key == 
         
         // Translate pressed into a bool for player array
         if (pressed == KEY_UNPRESSED){

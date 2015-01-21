@@ -45,6 +45,12 @@ spellsKnown[2] = "";
 // Lists of all particals for each spell
 partsForSpells = ds_map_create(); // Gets filled with initSpells()
 
+// Key Maps
+keyActions = ds_list_create(); // The keys to the key maps
+keys_default_map = ds_map_create();
+keys_primary_map = ds_map_create();
+keys_secondary_map = ds_map_create();
+
 //Transfer Local Data to Client
 // Init all spells
 with(LocalData){
@@ -53,6 +59,11 @@ with(LocalData){
     other.spellsKnown[1] = self.spellsKnown[1];
     other.spellsKnown[2] = self.spellsKnown[2];
     initSpells(); // Initializes all spells, let client know all particals
+    
+    other.keyActions = self.keyActions;
+    other.keys_default_map = self.keys_default_map;
+    other.keys_primary_map = self.keys_primary_map;
+    other.keys_secondary_map = self.keys_secondary_map;
 }
 
 

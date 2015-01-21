@@ -48,13 +48,18 @@
       <script>scripts\create_ServerClient.gml</script>
     </scripts>
     <script>scripts\draw_local_player.gml</script>
-    <script>scripts\draw_player.gml</script>
-    <script>scripts\draw_spell.gml</script>
     <script>scripts\getPlayerID.gml</script>
     <script>scripts\removePlayerID.gml</script>
     <script>scripts\spell_init_spell.gml</script>
     <script>scripts\setLocalVar.gml</script>
-    <script>scripts\initSpells.gml</script>
+    <script>scripts\changeKey.gml</script>
+    <scripts name="ClientScripts">
+      <script>scripts\initSpells.gml</script>
+      <script>scripts\keyboard_CheckMaps_Held.gml</script>
+      <script>scripts\keyboard_CheckMaps_Pressed.gml</script>
+      <script>scripts\draw_player.gml</script>
+      <script>scripts\draw_spell.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <object>objects\Player</object>
@@ -75,7 +80,8 @@
     <room>rooms\Start_Room</room>
     <room>rooms\Battle_Room_01</room>
   </rooms>
-  <constants number="32">
+  <constants number="35">
+    <constant name="KEY_MAP_SIZE">10</constant>
     <constant name="MOUSE_WHEEL_DOWN">10</constant>
     <constant name="MOUSE_WHEEL_UP">11</constant>
     <constant name="GAME_STYLE_LOCAL">1</constant>
@@ -89,6 +95,8 @@
     <constant name="MOUSE_PRESSED">0</constant>
     <constant name="KEY_PRESSED">1</constant>
     <constant name="KEY_UNPRESSED">0</constant>
+    <constant name="TOGGLE_SPELL_BACKWARD">5</constant>
+    <constant name="TOGGLE_SPELL_FORWARD">4</constant>
     <constant name="DOWN_KEY">3</constant>
     <constant name="JUMP_KEY">2</constant>
     <constant name="RIGHT_KEY">1</constant>

@@ -59,6 +59,45 @@ spellsKnown[2] = "spell_shield";
 // All current spells
 spellList = ds_list_create();
 ds_list_add(spellList,"spell_shield");
+
+
+// Key Mappings ------------------------------------------------------------------
+keyActions = ds_list_create(); // The keys to the key maps
+    ds_list_add(keyActions,"Jump");
+    ds_list_add(keyActions,"Left");
+    ds_list_add(keyActions,"Right");
+    ds_list_add(keyActions,"Down");
+    ds_list_add(keyActions,"Toggle Spell Forward");
+    ds_list_add(keyActions,"Toggle Spell Backward");
+
+keys_default_map = ds_map_create(); // This map are the keys checked and sent over the network, never altered
+keys_primary_map = ds_map_create();
+keys_secondary_map = ds_map_create();
+
+    ds_map_add(keys_default_map,JUMP_KEY,ord("W"));
+    ds_map_add(keys_primary_map,JUMP_KEY,ord("W"));
+    ds_map_add(keys_secondary_map,JUMP_KEY,vk_up); // -1  = No Value
+    
+    ds_map_add(keys_default_map,LEFT_KEY,ord("A"));
+    ds_map_add(keys_primary_map,LEFT_KEY,ord("A"));
+    ds_map_add(keys_secondary_map,LEFT_KEY,vk_left);
+    
+    ds_map_add(keys_default_map,RIGHT_KEY,ord("D"));
+    ds_map_add(keys_primary_map,RIGHT_KEY,ord("D"));
+    ds_map_add(keys_secondary_map,RIGHT_KEY,vk_right);
+    
+    ds_map_add(keys_default_map,DOWN_KEY,ord("S"));
+    ds_map_add(keys_primary_map,DOWN_KEY,ord("S"));
+    ds_map_add(keys_secondary_map,DOWN_KEY,vk_down);
+    
+    ds_map_add(keys_default_map,TOGGLE_SPELL_BACKWARD,ord("Q"));
+    ds_map_add(keys_primary_map,TOGGLE_SPELL_BACKWARD,ord("Q"));
+    ds_map_add(keys_secondary_map,TOGGLE_SPELL_BACKWARD,-1); // -1  = No Value
+    
+    ds_map_add(keys_default_map,TOGGLE_SPELL_FORWARD,ord("E"));
+    ds_map_add(keys_primary_map,TOGGLE_SPELL_FORWARD,ord("E"));
+    ds_map_add(keys_secondary_map,TOGGLE_SPELL_FORWARD,-1);
+
 </string>
           </argument>
         </arguments>

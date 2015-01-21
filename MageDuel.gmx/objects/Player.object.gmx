@@ -67,8 +67,8 @@ spellsKnown[2] = "";
 
 // NETWORK PLAYER VARIABLES -------------------------------------------
 
-// Keys : left,right,jump,down | 0-3
-for (var i=0;i&lt;4;i++){
+// Keys : left,right,jump,down,toggleF,toggleB | 0-5  -- toggle spells Forward and Backwards
+for (var i=0;i&lt;6;i++){
     keys[i] = false;
 }
 

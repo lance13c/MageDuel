@@ -107,25 +107,25 @@ if (activeSpell != ""){
  // This makes it so the spell activation does not get messed up
     // Mouse Wheel, changeds activeSpellIndex
     
-    //The server is incharge of setting the mouseWheelInputs to true
-    //PROBLEM, SHUFFLING THROUGH FAST, INPUT ALWAYS 3 FOR ONE OF THEM
-    /*
-    if (mouseWheelInputs[MOUSE_WHEEL_UP]){
+    //The server is incharge of setting the mouseWheelInputs to true  
+    if (mouseWheelInputs[MOUSE_WHEEL_UP] || keys[TOGGLE_SPELL_FORWARD]){
         if (activeSpellIndex &gt;= maxSpells-1){
             activeSpellIndex = 0;
         }else{
             activeSpellIndex += 1;
         }
         mouseWheelInputs[MOUSE_WHEEL_UP] = false; // Reset to false,
-    }else if (mouseWheelInputs[MOUSE_WHEEL_DOWN]){
+        keys[TOGGLE_SPELL_FORWARD] = false; // Reset to false,
+    }else if (mouseWheelInputs[MOUSE_WHEEL_DOWN] || keys[TOGGLE_SPELL_BACKWARD]){
         if (activeSpellIndex &lt;= 0){
             activeSpellIndex = maxSpells-1;
         }else{
             activeSpellIndex -= 1;
         }
+        keys[TOGGLE_SPELL_BACKWARD] = false; // Reset to false,
         mouseWheelInputs[MOUSE_WHEEL_DOWN] = false; // Reset to false,
     }   
-    */
+    
 
 //Sets the current spell
 activeSpell = spellsKnown[activeSpellIndex];
