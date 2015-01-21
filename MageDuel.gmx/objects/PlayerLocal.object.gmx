@@ -113,14 +113,14 @@ if (activeSpell != ""){
 
 if (!device_mouse_check_button(0,mb_left)){ // This makes it so the spell activation does not get messed up
     // Mouse Wheel, changeds activeSpellIndex
-    if (keyboard_CheckMaps_Held(TOGGLE_SPELL_FORWARD)){
+    if (keyboard_CheckMaps_Pressed(TOGGLE_SPELL_FORWARD)){
         if (activeSpellIndex &gt;= maxSpells-1){
             activeSpellIndex = 0;
         }else{
             activeSpellIndex += 1;
         }
     }
-    if (keyboard_CheckMaps_Held(TOGGLE_SPELL_BACKWARD)){
+    if (keyboard_CheckMaps_Pressed(TOGGLE_SPELL_BACKWARD)){
         if (activeSpellIndex &lt;= 0){
             activeSpellIndex = maxSpells-1;
         }else{
