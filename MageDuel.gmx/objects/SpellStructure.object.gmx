@@ -117,10 +117,7 @@ for (var i=0;i&lt;partsAmount;i++){
   <PhysicsObjectLinearDamping>0.100000001490116</PhysicsObjectLinearDamping>
   <PhysicsObjectAngularDamping>0.100000001490116</PhysicsObjectAngularDamping>
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
-  <PhysicsObjectAwake>-1</PhysicsObjectAwake>
+  <PhysicsObjectAwake>0</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints>
-    <point>2,2</point>
-    <point>2,2</point>
-  </PhysicsShapePoints>
+  <PhysicsShapePoints/>
 </object>

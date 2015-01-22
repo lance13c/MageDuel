@@ -1,6 +1,8 @@
 // Spell Partical Creation in SpellStructure, This is what the clients will use
 //    to display the spell. The server will manage the collisions and objects
 
+// Bolt Spell
+
 //part_emitter_burst(system,e_shield1,p_shield1,5);
 //draw_self();
 

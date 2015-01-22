@@ -29,6 +29,10 @@
         <script>scripts\spell_shield_part_create.gml</script>
       </scripts>
       <script>scripts\spell_system.gml</script>
+      <scripts name="SpellBolt">
+        <script>scripts\spell_bolt.gml</script>
+        <script>scripts\spell_bolt_create.gml</script>
+      </scripts>
     </scripts>
     <scripts name="Networking">
       <script>scripts\network_ConnectDisconnect.gml</script>
