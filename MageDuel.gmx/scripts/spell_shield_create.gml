@@ -20,7 +20,7 @@ for(i=0;i<(angle);i+=inc){
         belongTo = other.playerID; // The player this belongs to
         spell = asset_get_index(activeSpell); // All spell structures need to have an activeSpell
         parts = ds_map_find_value(other.partsForSpells,activeSpell); // Looks up the particals
-        partsAmount = array_length_1d(parts); // The amount of particals
+        partsAmount = array_length_1d(parts); // The amount of different particals
         //spell_shield_part_create(); // This is specific to this script
     }
 }
@@ -36,7 +36,7 @@ for(i=0;i<(angle);i+=inc){
         belongTo = other.playerID; // The player this belongs to
         spell = asset_get_index(activeSpell); // All spell structures need to have an activeSpell
         parts = ds_map_find_value(other.partsForSpells,activeSpell); // Looks up the particals
-        partsAmount = array_length_1d(parts); // The amount of particals
+        partsAmount = array_length_1d(parts); // The amount of different particals
         //spell_shield_part_create();
     }
 }

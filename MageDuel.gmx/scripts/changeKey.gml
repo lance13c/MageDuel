@@ -24,4 +24,3 @@ for (var i=0;i<KEY_MAP_SIZE;i++){
 // Set key in map and return true
 ds_map_replace(map,action,key);
 return true;
-

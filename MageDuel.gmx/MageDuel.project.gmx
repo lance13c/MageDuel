@@ -32,6 +32,7 @@
       <scripts name="SpellBolt">
         <script>scripts\spell_bolt.gml</script>
         <script>scripts\spell_bolt_create.gml</script>
+        <script>scripts\spell_bolt_active.gml</script>
       </scripts>
     </scripts>
     <scripts name="Networking">
