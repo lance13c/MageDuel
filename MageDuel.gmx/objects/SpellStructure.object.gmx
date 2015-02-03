@@ -64,15 +64,61 @@ yPre = y; // The y on startup
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Check if this Spell Structure has changed
+            <string>/// Check if this Spell Structure's properties has changed
 // Only the Server can change it back the spellChanged back to false
 // Only do this if there is a server
 if (global.gameStyle == GAME_STYLE_NET){
     if (xPre != x || yPre != y){
         changed = true;
+        xPre = x;
+        yPre = y;
     }
 }
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="HWall">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>test</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="VWall">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>test</string>
           </argument>
         </arguments>
       </action>
@@ -119,8 +165,5 @@ for (var i=0;i&lt;partsAmount;i++){
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>0</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints>
-    <point>2,2</point>
-    <point>2,2</point>
-  </PhysicsShapePoints>
+  <PhysicsShapePoints/>
 </object>

@@ -53,12 +53,13 @@ localPlayerName[0] = "Demo"; // Player 0 name, This is in case there are multipl
 
 //Spells Known to Player
 spellsKnown[0] = "spell_shield";
-spellsKnown[1] = "spell_shield";
+spellsKnown[1] = "spell_bolt";
 spellsKnown[2] = "spell_shield";
 
 // All current spells
 spellList = ds_list_create();
 ds_list_add(spellList,"spell_shield");
+ds_list_add(spellList,"spell_bolt");
 
 
 // Key Mappings ------------------------------------------------------------------
