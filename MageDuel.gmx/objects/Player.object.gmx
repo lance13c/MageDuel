@@ -48,6 +48,10 @@ with (LocalData){
     other.keys_primary_map = self.keys_primary_map;
     other.keys_secondary_map = self.keys_secondary_map;
 }
+show_debug_message("--------------------------------------------------------------");
+show_debug_message(ds_map_find_value(partsForSpells,"spell_shield"));
+show_debug_message(ds_map_find_value(partsForSpells,"spell_bolt"));
+
 system = "";
 with (Client){
     other.system = system;

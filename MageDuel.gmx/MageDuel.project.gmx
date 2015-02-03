@@ -35,11 +35,11 @@
         <script>scripts\spell_bolt.gml</script>
         <script>scripts\spell_bolt_physics.gml</script>
         <script>scripts\spell_bolt_physics_bind.gml</script>
+        <script>scripts\spell_bolt_physics_del.gml</script>
         <script>scripts\spell_bolt_create.gml</script>
         <script>scripts\spell_bolt_active.gml</script>
         <script>scripts\spell_bolt_destroy.gml</script>
         <script>scripts\spell_bolt_part_create.gml</script>
-        <script>scripts\spell_bolt_physics_del.gml</script>
       </scripts>
       <script>scripts\spell_system.gml</script>
     </scripts>
