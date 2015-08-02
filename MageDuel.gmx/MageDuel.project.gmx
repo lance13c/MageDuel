@@ -74,7 +74,9 @@
       <script>scripts\draw_spell.gml</script>
     </scripts>
   </scripts>
-  <shaders name="shaders"/>
+  <fonts name="fonts">
+    <font>fonts\font0</font>
+  </fonts>
   <objects name="objects">
     <object>objects\Player</object>
     <object>objects\PlayerLocal</object>
